@@ -1,0 +1,68 @@
+<div style="text-align:center; padding:20px; border:2px solid red; border-radius:15px;">
+<h2>🆘 Emergency SOS - Safe Mode</h2>
+<p>Har step ke liye alag Allow karna padega</p>
+
+<button id="locBtn" onclick="getLocation()">1. Location Lo</button>
+<p id="locStatus"></p>
+
+<button id="photoBtn" onclick="getPhoto()" style="display:none;">2. Photo Lo</button>
+<div id="photoPreview"></div>
+
+<button id="audioBtn" onclick="getAudio()" style="display:none;">3. Voice Record Karo (5 sec)</button>
+<div id="audioPreview"></div>
+
+<button id="shareBtn" onclick="shareNow()" style="display:none; background:green; color:white; padding:10px;">4. WhatsApp Pe Bhejo</button>
+</div>
+
+<script>
+let locLink = "";
+let photoData = null;
+let audioBlob = null;
+
+function getLocation(){
+ navigator.geolocation.getCurrentPosition(pos=>{
+   locLink = `https://www.google.com/maps?q=${pos.coords.latitude},${pos.coords.longitude}`;
+   document.getElementById('locStatus').innerHTML = `Location Mil Gayi: <a href="${locLink}" target="_blank">Maps Link</a>`;
+   document.getElementById('photoBtn').style.display='inline-block';
+ }, ()=>{ alert("Location Allow Karo") });
+}
+
+function getPhoto(){
+ navigator.mediaDevices.getUserMedia({video:true}).then(stream=>{
+   let video = document.createElement('video');
+   video.srcObject=stream; video.play();
+   setTimeout(()=>{
+     let canvas = document.createElement('canvas');
+     canvas.width=320; canvas.height=240;
+     canvas.getContext('2d').drawImage(video,0,0,320,240);
+     photoData = canvas.toDataURL();
+     document.getElementById('photoPreview').innerHTML = `<img src="${photoData}" width="200"><br><a href="${photoData}" download="emergency.jpg">Photo Download Karo</a>`;
+     stream.getTracks().forEach(t=>t.stop());
+     document.getElementById('audioBtn').style.display='inline-block';
+   },1500);
+ });
+}
+
+function getAudio(){
+ navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
+   let rec = new MediaRecorder(stream);
+   let chunks=[];
+   rec.ondataavailable=e=>chunks.push(e.data);
+   rec.onstop=()=>{
+     audioBlob = new Blob(chunks,{type:'audio/webm'});
+     let url = URL.createObjectURL(audioBlob);
+     document.getElementById('audioPreview').innerHTML = `<audio controls src="${url}"></audio><br><a href="${url}" download="emergency.webm">Audio Download Karo</a>`;
+     document.getElementById('shareBtn').style.display='inline-block';
+   };
+   rec.start();
+   setTimeout(()=>{ rec.stop(); stream.getTracks().forEach(t=>t.stop()); },5000);
+   alert("Recording 5 sec ke liye shuru... bolo");
+ });
+}
+
+function shareNow(){
+ let msg = `Mujhe Madad Chahiye! Meri Location: ${locLink} . Maine Photo aur Audio bhi li hai jo mai attach kar rahi hu.`;
+ window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+ alert("Ab WhatsApp khulega. Waha Location jayegi, sath me Download ki hui Photo/Audio bhi Attach kar dena.");
+}
+</script>
