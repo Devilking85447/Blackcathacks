@@ -1,174 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-<meta name="google-site-verification" content="98d00c54640a80f9" />`
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BlackCatHacks.in - Free Security Tools</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
-<style>
-body{background:#050505;color:#00ff88;font-family:monospace;background-image: radial-gradient(circle at top, #0a2a12 0%, #050505 60%);}
-.tool-card{border:1px solid #00ff88; background:rgba(0,0,0,0.8); backdrop-filter: blur(5px); transition:0.3s}
-.tool-card:hover{box-shadow:0 0 20px #00ff88; transform:translateY(-2px);}
-</style>
-</head>
-<body class="p-4">
-<!-- HEADER WITH LOGO -->
-<div class="text-center mt-6">
-<div class="text-6xl">🐈‍⬛</div>
-<h1 class="text-4xl font-bold mt-2 tracking-widest">BlackCatHacks.in</h1>
-<p class="text-white mt-2 text-sm opacity-70">100% Free | Private | No Login | 6 Security Tools</p>
-</div>
-
-<!-- TOOLS GRID -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto mt-10">
-<!-- 1 Photo -->
-<div class="tool-card p-5 rounded-2xl"><h2 class="text-xl font-bold">📸 Photo Leak Checker</h2><p class="text-white text-xs mt-1">Check if your photo has hidden GPS location data</p><input type="file" id="imgInput" class="mt-4 w-full text-xs text-white"><div id="imgResult" class="mt-3 bg-[#111] p-3 rounded text-xs text-white whitespace-pre-wrap border border-gray-800">Waiting for photo...</div></div>
-<!-- 2 Password Strength -->
-<div class="tool-card p-5 rounded-2xl"><h2 class="text-xl font-bold">🔑 Password Strength Checker</h2><p class="text-white text-xs mt-1">Check how strong your password is</p><input type="text" id="passInput" placeholder="Enter password here" class="mt-4 w-full p-2 bg-[#111] border border-green-500 rounded text-white text-sm"><div id="passResult" class="mt-3 text-white font-bold text-sm"></div></div>
-<!-- 3 IP -->
-<div class="tool-card p-5 rounded-2xl"><h2 class="text-xl font-bold">🌍 My IP & Location Finder</h2><p class="text-white text-xs mt-1">Find your public IP address</p><button onclick="getIP()" class="mt-4 bg-green-400 text-black px-6 py-2 rounded-full font-bold hover:bg-green-300">Find My IP</button><div id="ipResult" class="mt-3 text-white text-xs leading-6"></div></div>
-<!-- 4 Generator -->
-<div class="tool-card p-5 rounded-2xl"><h2 class="text-xl font-bold">⚙️ Strong Password Generator</h2><p class="text-white text-xs mt-1">Generate unhackable 16-char password</p><button onclick="genPass()" class="mt-4 bg-green-400 text-black px-6 py-2 rounded-full font-bold hover:bg-green-300">Generate Password</button><div id="genResult" class="mt-3 text-white text-sm font-bold break-all bg-[#111] p-2 rounded"></div></div>
-<!-- 5 Link -->
-<div class="tool-card p-5 rounded-2xl"><h2 class="text-xl font-bold">🔗 Suspicious Link Scanner</h2><p class="text-white text-xs mt-1">Check if a link is safe or phishing</p><input type="text" id="linkInput" placeholder="https://example.com" class="mt-4 w-full p-2 bg-[#111] border border-green-500 rounded text-white text-sm"><button onclick="scanLink()" class="mt-3 bg-green-400 text-black px-6 py-1 rounded-full font-bold text-sm">Scan Link</button><div id="linkResult" class="mt-3 text-white text-xs"></div></div>
-<!-- 6 Email -->
-<div class="tool-card p-5 rounded-2xl"><h2 class="text-xl font-bold">📧 Email Leak Check</h2><p class="text-white text-xs mt-1">Check if your email was leaked</p><input type="text" id="emailInput" placeholder="your@email.com" class="mt-4 w-full p-2 bg-[#111] border border-green-500 rounded text-white text-sm"><button onclick="checkEmail()" class="mt-3 bg-green-400 text-black px-6 py-1 rounded-full font-bold text-sm">Check Now</button><div id="emailResult" class="mt-3 text-white text-xs"></div></div>
-<div style="background:#111;border:1px solid #0f0;border-radius:12px;padding:15px;margin:15px 
-</div>
-<div style="border:1px solid #0f0;border-radius:15px;padding:15px;background:#111">
-<h3 style="color:#0f0">📸 Instagram Clone Detector</h3>
-<p style="color:#aaa;font-size:12px">Check if someone cloned your Insta</p>
-<a href="tools/instagram-clone-check.html" style="background:#0f0;color:#000;padding:8px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:10px">Check Now</a>
-</div>
-  <!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BlackCatHacks.in - Free Security Tools</title>
+<title>BlackCatHacks.in</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#050805;color:#fff;font-family:Arial;padding:15px}
-.header{text-align:center;padding:20px 0}
-.header h1{color:#00ff88;font-size:28px}
-.header p{opacity:0.6;font-size:12px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
-@media(max-width:600px){.grid{grid-template-columns:1fr}}
-.card{background:#0f1a0f;border:1px solid #1a3a1a;border-radius:12px;padding:15px}
-.card h3{font-size:14px;margin-bottom:5px}
-.card p{font-size:11px;opacity:0.6;margin-bottom:10px}
-.card input{width:100%;background:#050805;border:1px solid #333;padding:8px;border-radius:6px;color:#fff;margin-bottom:8px}
-.card button{background:#00ff88;color:#000;border:none;padding:7px 15px;border-radius:20px;font-weight:bold;cursor:pointer;font-size:12px}
-#sosOverlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:999;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:20px}
+body{background:#000;color:#fff;font-family:Arial;margin:0;padding:10px}
+h1{text-align:center;color:#fff;margin:10px 0 0 0}
+.sub{text-align:center;opacity:.5;font-size:12px;margin-bottom:15px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:600px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:#0a120a;border:1px solid #123312;border-radius:10px;padding:12px}
+.card h3{font-size:13px;margin:0 0 3px 0}
+.card p{font-size:10px;opacity:.5;margin:0 0 8px 0}
+.card input{width:100%;background:#000;border:1px solid #333;padding:8px;border-radius:5px;color:#fff;box-sizing:border-box;font-size:12px}
+.card button{background:#00ff88;color:#000;border:none;padding:6px 12px;border-radius:15px;font-weight:bold;font-size:11px;margin-top:6px}
+#sosBox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:20px}
 </style>
 </head>
 <body>
 
-<div id="sosOverlay">
-<h2 style="color:#ff4444;">🚨 Emergency SOS</h2>
+<div id="sosBox">
+<div style="font-size:50px">🚨</div>
+<h2 style="color:#ff3333">Emergency SOS</h2>
 <p>Family member needs your location for safety</p>
-<p style="font-size:12px;margin:10px;opacity:0.6">Code: <span id="sosCode"></span></p>
-<button onclick="shareLocation()" style="background:#00ff88;padding:15px 30px;border-radius:30px;font-size:18px;margin-top:20px">📍 Share My Location</button>
-<p id="sosStatus" style="margin-top:20px"></p>
+<p style="font-size:11px;opacity:.5">Code: <span id="scode"></span></p>
+<button onclick="getLoc()" style="padding:14px 28px;font-size:16px;border-radius:25px;margin-top:20px">📍 Share My Location</button>
+<p id="sstatus" style="margin-top:15px;font-size:13px"></p>
 </div>
 
-<div class="header">
-<div style="font-size:40px">🐈‍⬛</div>
-<h1>BlackCatHacks.in</h1>
-<p>100% Free | Private | No Login | Security Tools</p>
-</div>
+<div style="text-align:center"><div style="font-size:30px">🐈‍⬛</div><h1>BlackCatHacks.in</h1><div class="sub">100% Free | Private | No Login | Security Tools</div></div>
 
 <div class="grid">
-<div class="card"><h3>📸 Photo Leak Checker</h3><p>Check if your photo has hidden GPS location data</p><input type="file" id="photoInput"><p id="photoResult">Waiting for photo...</p></div>
-<div class="card"><h3>🔑 Password Strength Checker</h3><p>Check how strong your password is</p><input type="password" id="passInput" placeholder="Enter password here" oninput="checkPass()"><p id="passResult"></p></div>
-<div class="card"><h3>🌍 My IP & Location Finder</h3><p>Find your public IP address</p><button onclick="findIP()">Find My IP</button><p id="ipResult" style="margin-top:8px"></p></div>
-<div class="card"><h3>🔐 Strong Password Generator</h3><p>Generate unhackable 16-char password</p><button onclick="genPass()">Generate Password</button><p id="genResult" style="margin-top:8px;word-break:break-all"></p></div>
-<div class="card"><h3>🔗 Suspicious Link Scanner</h3><p>Check if a link is safe or phishing</p><input id="linkInput" placeholder="https://example.com"><button onclick="scanLink()">Scan Link</button><p id="linkResult" style="margin-top:8px"></p></div>
-<div class="card"><h3>📧 Email Leak Check</h3><p>Check if your email was leaked</p><input id="emailInput" placeholder="your@email.com"><button onclick="checkEmail()">Check Now</button><p id="emailResult"></p></div>
-<div class="card"><h3>📸 Instagram Clone Detector</h3><p>Check if someone cloned your insta</p><button onclick="alert('Feature coming soon')">Check Now</button></div>
+<div class="card"><h3>📸 Photo Leak Checker</h3><p>Check if your photo has hidden GPS location data</p><input type="file"><div style="background:#000;padding:5px;border-radius:5px;font-size:10px;opacity:.6">Waiting for photo...</div></div>
+<div class="card"><h3>🔑 Password Strength Checker</h3><p>Check how strong your password is</p><input placeholder="Enter password here"><div style="font-size:10px;margin-top:5px"></div></div>
+<div class="card"><h3>🌍 My IP & Location Finder</h3><p>Find your public IP address</p><button>Find My IP</button></div>
+<div class="card"><h3>🔐 Strong Password Generator</h3><p>Generate unhackable 16-char password</p><button>Generate Password</button></div>
+<div class="card"><h3>🔗 Suspicious Link Scanner</h3><p>Check if a link is safe or phishing</p><input placeholder="https://example.com"><br><button>Scan Link</button></div>
+<div class="card"><h3>📧 Email Leak Check</h3><p>Check if your email was leaked</p><input placeholder="your@email.com"><br><button>Check Now</button></div>
+<div class="card"><h3>📸 Instagram Clone Detector</h3><p>Check if someone cloned your insta</p><button>Check Now</button></div>
 <div class="card" style="border-color:#00ff88"><h3>🚨 Emergency SOS</h3><p>Family Safety Tracker - Live Location</p><a href="tools/emergency-live-location-sos.html"><button>Open Tool</button></a></div>
 </div>
 
-<p style="text-align:center;margin-top:30px;font-size:10px;opacity:0.4">Made with ❤️ by DevilKing | Website: BlackCatHacks.in © 2026<br>Educational Purpose Only</p>
+<div style="text-align:center;font-size:9px;opacity:.3;margin-top:25px">Made with ❤️ by DevilKing | BlackCatHacks.in © 2026<br>Educational Purpose Only</div>
 
 <script>
-// SOS handling
-const urlParams = new URLSearchParams(window.location.search);
-const sos = urlParams.get('sos');
-if(sos){
- document.getElementById('sosOverlay').style.display='flex';
- document.getElementById('sosCode').innerText=sos;
+let p=new URLSearchParams(location.search).get('sos');
+if(p){document.getElementById('sosBox').style.display='flex';document.getElementById('scode').innerText=p;}
+function getLoc(){
+document.getElementById('sstatus').innerText='Getting location... Allow permission';
+navigator.geolocation.getCurrentPosition(pos=>{
+let lat=pos.coords.latitude,lon=pos.coords.longitude;
+let link=`https://www.google.com/maps?q=${lat},${lon}`;
+let wa=`https://wa.me/?text=${encodeURIComponent('🚨 My Live Location: '+link)}`;
+document.getElementById('sstatus').innerHTML=`Found!<br><a href="${link}" style="color:#00ff88" target="_blank">${link}</a><br><br><a href="${wa}"><button style="background:#25D366;color:#fff;padding:10px 18px;border:none;border-radius:20px">Share on WhatsApp</button></a>`;
+},()=>{document.getElementById('sstatus').innerText='Please allow location permission';});
 }
-function shareLocation(){
- document.getElementById('sosStatus').innerText='Getting location... Please allow';
- navigator.geolocation.getCurrentPosition(p=>{
-  const lat=p.coords.latitude, lon=p.coords.longitude;
-  const mapLink=`https://www.google.com/maps?q=${lat},${lon}`;
-  const waLink=`https://wa.me/?text=${encodeURIComponent('🚨 My Live Location: '+mapLink)}`;
-  document.getElementById('sosStatus').innerHTML=`Location Found!<br><a href="${mapLink}" target="_blank" style="color:#00ff88">${mapLink}</a><br><br><a href="${waLink}"><button style="background:#25D366;color:#fff;padding:12px 20px;border:none;border-radius:20px">Share on WhatsApp</button></a>`;
- },()=>{document.getElementById('sosStatus').innerText='Please allow location permission';});
-}
-function findIP(){
- fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>{document.getElementById('ipResult').innerText='Your IP: '+d.ip});
-}
-function genPass(){
- const chars='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz123456789!@#$%';
- let p=''; for(let i=0;i<16;i++) p+=chars[Math.floor(Math.random()*chars.length)];
- document.getElementById('genResult').innerText=p;
-}
-function checkPass(){
- const v=document.getElementById('passInput').value;
- let s='Weak'; if(v.length>8) s='Medium'; if(v.length>12 && /[!@#$%]/.test(v)) s='Strong';
- document.getElementById('passResult').innerText=s;
-}
-function scanLink(){
- const v=document.getElementById('linkInput').value;
- document.getElementById('linkResult').innerText=v.includes('https')?'Looks Safe ✅':'Suspicious ⚠️ Check https';
-}
-function checkEmail(){
- document.getElementById('emailResult').innerText='No leaks found in our check ✅ (Demo)';
-}
-document.getElementById('photoInput')?.addEventListener('change',function(){
- document.getElementById('photoResult').innerText='No GPS data found ✅ Safe to share';
-});
-</script>
-</body>
-</html>
-<script>
-const params = new URLSearchParams(window.location.search);
-const sos = params.get('sos');
-if(sos){
-  document.getElementById('main').style.display='none';
-  document.getElementById('sos-page').style.display='block';
-  document.getElementById('sos-code').innerText=sos;
-}
-function getLocation(){
-  document.getElementById('status').innerText='Getting location... Please Allow';
-  navigator.geolocation.getCurrentPosition(pos=>{
-    const lat=pos.coords.latitude;
-    const lon=pos.coords.longitude;
-    const link=`https://www.google.com/maps?q=${lat},${lon}`;
-    const msg=`🚨 My Live Location: ${link}`;
-    const waLink=`https://wa.me/?text=${encodeURIComponent(msg)}`;
-    document.getElementById('status').innerHTML=`Location found!<br><a href="${link}" target="_blank">${link}</a><br><br><a href="${waLink}"><button style="background:#25D366;color:#fff;padding:12px 20px;border:none;border-radius:20px">Share on WhatsApp</button></a>`;
-  },err=>{
-    document.getElementById('status').innerText='Location permission denied. Please allow.';
-  });
-}
-</script>
-</body>
-</html>
-<footer class="text-center mt-12 text-gray-500 text-xs">Made with ❤️ by DevilKing | Shimla | BlackCatHacks.in © 2026<br>Educational Purpose Only</footer>
-
-<script>
-document.getElementById('imgInput').addEventListener('change', function(e){const file=e.target.files[0];if(!file)return;document.getElementById('imgResult').innerText="Analyzing EXIF data...";EXIF.getData(file,function(){const all=EXIF.getAllTags(this);const lat=EXIF.getTag(this,"GPSLatitude");let text="";if(lat){text+="⚠️ WARNING: This photo contains GPS Location!\nNever share it publicly.\n\n";}else{text+="✅ SAFE: No GPS Location Found.\n\n";}text+="--- EXIF Details ---\n"+JSON.stringify(all,null,2).substring(0,500);document.getElementById('imgResult').innerText=text;});});
-document.getElementById('passInput').addEventListener('input', function(){const p=this.value;let score=0;if(p.length>5)score++;if(p.length>8)score++;if(/[A-Z]/.test(p))score++;if(/[0-9]/.test(p))score++;if(/[^A-Za-z0-9]/.test(p))score++;const levels=["Very Weak 🔴","Weak 🟠","Medium 🟡","Strong 🟢","Very Strong 💪"];document.getElementById('passResult').innerText=levels[Math.min(score,4)]+" ("+p.length+" characters)";});
-async function getIP(){document.getElementById('ipResult').innerText="Loading...";try{const ip=await fetch('https://api.ipify.org?format=json').then(r=>r.json());const loc=await fetch('https://ipapi.co/'+ip.ip+'/json/').then(r=>r.json());document.getElementById('ipResult').innerHTML=`<b>IP:</b> ${ip.ip}<br><b>City:</b> ${loc.city}<br><b>Country:</b> ${loc.country_name}<br><b>ISP:</b> ${loc.org}`;}catch{document.getElementById('ipResult').innerText="Failed to fetch, check internet";}}
-function genPass(){const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$!%*?&";let pass="";for(let i=0;i<16;i++)pass+=chars.charAt(Math.floor(Math.random()*chars.length));document.getElementById('genResult').innerText=pass;}
-function scanLink(){const url=document.getElementById('linkInput').value;if(!url)return;let res="";if(url.includes("http://"))res+="⚠️ Not HTTPS - Risky\n";if(url.length>75)res+="⚠️ Very long URL - Could be phishing\n";if(url.includes("@")||url.includes("free-money"))res+="⚠️ Suspicious keywords found\n";if(res==="")res="✅ Link looks clean and safe";document.getElementById('linkResult').innerText=res;}
-function checkEmail(){const email=document.getElementById('emailInput').value;if(!email.includes("@")){document.getElementById('emailResult').innerText="Please enter valid email";return;}document.getElementById('emailResult').innerText="✅ No major public leak found.\nTip: Always enable 2FA!";}
 </script>
 </body>
 </html>
