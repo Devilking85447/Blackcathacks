@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emergency SOS Tracker - BlackCatHacks</title>
+<style>
+body{background:#0a0a0a;color:#fff;font-family:sans-serif;text-align:center;padding:20px}
+.card{background:#151515;border:1px solid #ff2a2a;border-radius:15px;padding:20px;max-width:400px;margin:30px auto}
+button{background:#ff2a2a;color:#fff;padding:14px 25px;border:none;border-radius:30px;font-weight:bold;width:100%;font-size:16px}
+input{width:95%;padding:12px;border-radius:10px;border:none;margin-top:10px;background:#222;color:#0f0;text-align:center}
+small{color:#888}
+</style>
+</head>
+<body>
+<div class="card">
+<h2 style="color:#ff2a2a">🚨 Emergency SOS Tracker</h2>
+<p>For Family Safety - Live Location Share</p>
+<button id="btn">Generate SOS Link</button>
+<div id="out" style="margin-top:20px"></div>
+<small>Only use with family consent</small>
+</div>
+<script>
+const out=document.getElementById('out');
+document.getElementById('btn').onclick=()=>{
+  const id=Math.random().toString(36).substring(2,8);
+  const link=location.origin+location.pathname+'?sos='+id;
+  out.innerHTML=`<p style='color:#0f0'>Share this SOS link with your family member:</p><input value='${link}' readonly onclick='this.select()'><p style='margin-top:15px'>Waiting for them to allow location...</p>`;
+  localStorage.setItem('sos_'+id,'waiting');
+};
+if(location.search.includes('sos=')){
+  document.body.innerHTML=`<div class="card"><h2>🆘 SOS Location Request</h2><p>Someone wants your live location for safety purpose.<br><br>Click Allow to share your live location.</p><button id="allow">Allow & Share Live Location</button><p id="msg"></p></div>`;
+  document.getElementById('allow').onclick=()=>{
+    document.getElementById('msg').innerText='Getting GPS...';
+    navigator.geolocation.getCurrentPosition(pos=>{
+      const lat=pos.coords.latitude;
+      const lng=pos.coords.longitude;
+      const maps=`https://www.google.com/maps?q=${lat},${lng}`;
+      const text=`🚨 SOS LIVE LOCATION%0A%0ALat: ${lat}%0ALng: ${lng}%0AAccuracy: ${Math.round(pos.coords.accuracy)}m%0A%0AGoogle Maps: ${maps}`;
+      document.getElementById('msg').innerHTML=`<p style='color:#0f0'>Location Found!</p><a href='${maps}' target='_blank' style='color:#ff2a2a'>Open in Maps</a><br><br><a href='https://wa.me/?text=${encodeURIComponent(text)}' style='background:#25D366;color:#fff;padding:10px 20px;border-radius:20px;text-decoration:none;display:inline-block'>Send on WhatsApp</a>`;
+    },err=>{
+      document.getElementById('msg').innerText='Location denied. Please allow GPS.';
+    },{enableHighAccuracy:true});
+  }
+}
+</script>
+</body>
+</html>
