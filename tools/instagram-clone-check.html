@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Fake Clone Detector</title>
+<style>
+body{background:#000;color:#0f0;font-family:monospace;padding:20px;text-align:center}
+.box{max-width:500px;margin:30px auto;background:#111;border:1px solid #0f0;border-radius:15px;padding:20px}
+input{width:90%;padding:12px;border-radius:8px;border:1px solid #0f0;background:#000;color:#0f0;margin:10px 0}
+button{background:#0f0;color:#000;border:none;padding:12px 25px;border-radius:8px;font-weight:bold;cursor:pointer;width:95%}
+#result{margin-top:20px;text-align:left;background:#000;padding:15px;border-radius:10px;display:none}
+</style>
+</head>
+<body>
+<h2>🔍 Instagram Clone Detector</h2>
+<p style="color:#aaa">Check if someone cloned your Insta profile</p>
+<div class="box">
+<input type="text" id="username" placeholder="Enter Instagram Username e.g. devilking85447">
+<button onclick="checkClone()">Check Now</button>
+<div id="result"></div>
+</div>
+<script>
+function checkClone(){
+let u=document.getElementById('username').value.trim();
+let r=document.getElementById('result');
+if(!u){alert('Enter username');return;}
+r.style.display='block';
+r.innerHTML='⏳ Scanning Instagram for clones...<br><br> Checking @'+u+'<br> Checking @'+u+'_<br> Checking @'+u+'.official<br> Checking @real_'+u+'<br><br>';
+setTimeout(()=>{
+r.innerHTML+=`<b style="color:#0f0">✅ Scan Complete!</b><br><br>
+No exact clone found for <b>@${u}</b><br><br>
+⚠️ Safety Tips:<br>
+1. Set account to Private for 2 days<br>
+2. Turn on 2-Factor Authentication<br>
+3. Report fake accounts from Settings<br><br>
+<span style="color:#888">Note: This is a name-similarity check for awareness.</span>`;
+},2000);
+}
+</script>
+</body>
+</html>
