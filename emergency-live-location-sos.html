@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Live Location SOS - Real GPS Tracker</title>
+<style>
+body{margin:0;background:#080808;color:#fff;font-family:Arial;text-align:center}
+.container{max-width:500px;margin:auto;padding:20px}
+.card{background:#151515;border:1px solid #ff2a2a;border-radius:15px;padding:25px;margin-top:20px;box-shadow:0 0 20px rgba(255,42,42,0.2)}
+h1{color:#ff2a2a;font-size:28px}
+.btn{width:100%;padding:15px;border:none;border-radius:10px;font-size:18px;font-weight:bold;cursor:pointer;margin:10px 0}
+.red{background:#ff2a2a;color:#fff}
+.green{background:#00ff88;color:#000}
+input{width:90%;padding:12px;border-radius:8px;border:1px solid #333;background:#000;color:#fff;text-align:center}
+#map{width:100%;height:300px;border-radius:10px;border:0;margin-top:15px;display:none}
+.alert{color:#aaa;font-size:13px;margin-top:15px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🚨 Emergency Live Location SOS</h1>
+<p>Real GPS Location Tracker</p>
+<div class="card">
+<h2 id="title">Apna SOS Link Banao</h2>
+<p id="desc">Ye link family ko bhejo. Emergency me is link se aapki real location mil jayegi.</p>
+<input type="text" id="phone" placeholder="Rescue WhatsApp No. ex: 9198xxxxxx">
+<br><br>
+<button class="btn red" onclick="generateLink()">Generate My SOS Link</button>
+<div id="result" style="display:none">
+<p>Ye link save kar lo:</p>
+<input type="text" id="sosLink" readonly>
+<button class="btn green" onclick="copyLink()">Copy Link</button>
+<button class="btn red" onclick="shareWA()">Share on WhatsApp</button>
+</div>
+<div id="victimPanel" style="display:none">
+<h2>📍 Location Mil Gayi!</h2>
+<p>Lat, Long: <span id="coords" style="color:#00ff88"></span></p>
+<p>Accuracy: <span id="acc"></span></p>
+<button class="btn green" id="sendBtn" onclick="sendLocation()">Send Location to Rescuer</button>
+<iframe id="map"></iframe>
+</div>
+</div>
+<p class="alert">Note: Ye tool bina permission ke location nahi nikalta. Real GPS tracker hai.</p>
+</div>
+<script>
+const pageLink = window.location.href.split('?')[0];
+const urlParams = new URLSearchParams(window.location.search);
+if(urlParams.has('rescue')){
+  document.getElementById('title').innerText = "🚨 SOS REQUEST!";
+  document.getElementById('desc').innerText = "Koi aapki help chahta hai. Location bhejne ke liye Allow kare.";
+  document.getElementById('phone').style.display = 'none';
+  document.querySelector('.red').style.display = 'none';
+  navigator.geolocation.getCurrentPosition(pos => {
+    let lat = pos.coords.latitude;
+    let lon = pos.coords.longitude;
+    let acc = pos.coords.accuracy;
+    let rescueNo = urlParams.get('rescue');
+    document.getElementById('victimPanel').style.display = 'block';
+    document.getElementById('coords').innerText = lat + ", " + lon;
+    document.getElementById('acc').innerText = acc.toFixed(0) + " meters";
+    document.getElementById('map').style.display = 'block';
+    document.getElementById('map').src = `https://maps.google.com/maps?q=${lat},${lon}&z=18&output=embed`;
+    window.finalLat = lat;
+    window.finalLon = lon;
+    window.rescueNo = rescueNo;
+  }, () => { alert('Please Allow Location Permission'); }, {enableHighAccuracy:true});
+}
+function generateLink(){
+  let phone = document.getElementById('phone').value;
+  if(phone.length < 10){ alert('Sahi number dalo'); return; }
+  let link = `${pageLink}?rescue=${phone}`;
+  document.getElementById('sosLink').value = link;
+  document.getElementById('result').style.display = 'block';
+  window.generatedLink = link;
+}
+function copyLink(){
+  navigator.clipboard.writeText(document.getElementById('sosLink').value);
+  alert('Copied!');
+}
+function shareWA(){
+  let msg = `🚨 EMERGENCY SOS - Is link pe click karke meri live location dekho: ${window.generatedLink}`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`);
+}
+function sendLocation(){
+  let gmapLink = `https://www.google.com/maps?q=${window.finalLat},${window.finalLon}`;
+  let msg = `🚨 HELP! Meri Real Location: ${gmapLink}`;
+  window.open(`https://wa.me/${window.rescueNo}?text=${encodeURIComponent(msg)}`);
+}
+</script>
+</body>
+</html>
