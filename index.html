@@ -42,14 +42,77 @@ body{background:#050505;color:#00ff88;font-family:monospace;background-image: ra
 <p style="color:#aaa;font-size:12px">Check if someone cloned your Insta</p>
 <a href="tools/instagram-clone-check.html" style="background:#0f0;color:#000;padding:8px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:10px">Check Now</a>
 </div>
-<div class="tool">
-  <div style="text-align:center">
-    <h3>🚨 Emergency SOS</h3>
-    <p style="font-size:12px;opacity:0.7">Family Safety Tracker</p>
-    <a href="tools/emergency-live-location-sos.html" style="text-decoration:none">
-      <button style="background:#00ff88;color:#000;font-weight:bold;border:none;padding:10px 20px;border-radius:20px;margin-top:10px;width:100%">Open Tool</button>
-    </a>
+  <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BlackCat Hacks - Family Safety</title>
+<style>
+body{background:#0a0a0a;color:#fff;font-family:Arial;margin:0;padding:15px}
+h1{text-align:center;color:#00ff88}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:20px}
+.tool{background:#1a1a1a;padding:20px;border-radius:15px;border:1px solid #333;text-align:center}
+.tool h3{margin:5px 0}
+.tool button{background:#00ff88;color:#000;font-weight:bold;border:none;padding:10px 20px;border-radius:20px;margin-top:10px;width:100%;cursor:pointer}
+#sos-page{display:none;text-align:center;padding:30px}
+#sos-page button{padding:15px 30px;font-size:18px}
+</style>
+</head>
+<body>
+
+<div id="main">
+<h1>🐾 BlackCat Hacks</h1>
+<div class="tools">
+  <div class="tool"><h3>Tool 1</h3><button>Open</button></div>
+  <div class="tool"><h3>Tool 2</h3><button>Open</button></div>
+  <div class="tool"><h3>Tool 3</h3><button>Open</button></div>
+  <div class="tool"><h3>Tool 4</h3><button>Open</button></div>
+  <div class="tool"><h3>Tool 5</h3><button>Open</button></div>
+  <div class="tool"><h3>Tool 6</h3><button>Open</button></div>
+  <div class="tool">
+    <div style="text-align:center">
+      <h3>🚨 Emergency SOS</h3>
+      <p style="font-size:12px;opacity:0.7">Family Safety Tracker</p>
+      <a href="tools/emergency-live-location-sos.html" style="text-decoration:none">
+        <button>Open Tool</button>
+      </a>
+    </div>
   </div>
+</div>
+</div>
+
+<div id="sos-page">
+<h2>🚨 Emergency SOS</h2>
+<p>Family member needs your location for safety.</p>
+<p style="font-size:12px;opacity:0.6">Code: <span id="sos-code"></span></p>
+<button id="shareBtn" onclick="getLocation()" style="background:#00ff88;color:#000;font-weight:bold;border:none;padding:15px 30px;border-radius:30px;margin-top:20px">📍 Share My Location</button>
+<p id="status" style="margin-top:20px"></p>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const sos = params.get('sos');
+if(sos){
+  document.getElementById('main').style.display='none';
+  document.getElementById('sos-page').style.display='block';
+  document.getElementById('sos-code').innerText=sos;
+}
+function getLocation(){
+  document.getElementById('status').innerText='Getting location... Please Allow';
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const lat=pos.coords.latitude;
+    const lon=pos.coords.longitude;
+    const link=`https://www.google.com/maps?q=${lat},${lon}`;
+    const msg=`🚨 My Live Location: ${link}`;
+    const waLink=`https://wa.me/?text=${encodeURIComponent(msg)}`;
+    document.getElementById('status').innerHTML=`Location found!<br><a href="${link}" target="_blank">${link}</a><br><br><a href="${waLink}"><button style="background:#25D366;color:#fff;padding:12px 20px;border:none;border-radius:20px">Share on WhatsApp</button></a>`;
+  },err=>{
+    document.getElementById('status').innerText='Location permission denied. Please allow.';
+  });
+}
+</script>
+</body>
+</html>
 <footer class="text-center mt-12 text-gray-500 text-xs">Made with ❤️ by DevilKing | Shimla | BlackCatHacks.in © 2026<br>Educational Purpose Only</footer>
 
 <script>
