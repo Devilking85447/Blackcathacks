@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlackCatHacks - Photo Leak Checker</title>
+<style>
+body{background:#0a0a0a;color:#e0e0e0;font-family:monospace;padding:15px;text-align:center}
+.box{border:2px solid #00ff41;padding:20px;max-width:700px;margin:20px auto;border-radius:12px;background:#111;box-shadow:0 0 20px #00ff4133}
+h1{color:#fff;letter-spacing:2px}h1 span{color:#00ff41}
+input[type=file]{background:#000;color:#00ff41;border:1px solid #00ff41;padding:10px;border-radius:6px}
+#result{text-align:left;white-space:pre-wrap;background:#000;padding:15px;margin-top:20px;border-radius:8px;min-height:120px;border:1px solid #333}
+.safe{color:#00ff41;font-weight:bold}.warn{color:#ff4444;font-weight:bold}
+.tag{display:inline-block;background:#222;border:1px solid #00ff41;padding:4px 8px;margin:3px;border-radius:4px;font-size:12px}
+</style>
+</head>
+<body>
+<h1><span>BlackCat</span>Hacks.in</h1>
+<h3>Photo Leak Checker - 100% Private</h3>
+<div class="box">
+<input type="file" id="file" accept="image/*">
+<div id="result">Photo select karo... Sab kuch aapke phone me check hoga, kahin upload nahi hoga.</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+<script>
+document.getElementById('file').addEventListener('change', function(e){
+let file=e.target.files[0]; if(!file) return;
+let res=document.getElementById('result'); res.innerHTML="Scanning...";
+EXIF.getData(file, function(){
+let all=EXIF.getAllTags(this); console.log(all);
+if(Object.keys(all).length==0){
+res.innerHTML="<span class='safe'>✅ SAFE - Is photo me koi location data nahi hai</span>\n\nYe photo safe hai share karne ke liye.";
+}else{
+let out="<span class='warn'>⚠️ WARNING - Is photo me data mila!</span>\n\n";
+if(all.GPSLatitude) out+="<span class='warn'>📍 GPS Location: MILA! Ye aapki location leak kar sakta hai!</span>\n";
+else out+="<span class='safe'>📍 GPS Location: Nahi mila (Safe)</span>\n";
+out+="\n--- Full Details ---\n";
+if(all.Make) out+="Camera: "+all.Make+" "+(all.Model||"")+"\n";
+if(all.DateTime) out+="Date: "+all.DateTime+"\n";
+if(all.Software) out+="Software: "+all.Software+"\n";
+out+="\n"+JSON.stringify(all,null,2);
+res.innerHTML=out;
+}
+});
+});
+</script>
+</body>
+</html>
