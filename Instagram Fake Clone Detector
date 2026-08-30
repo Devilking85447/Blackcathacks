@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insta Fake Clone Detector - BlackCatHacks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{background:#000;color:#0f0;font-family:Arial;padding:20px;text-align:center}
+.box{background:#111;border:1px solid #0f0;padding:20px;border-radius:15px;max-width:500px;margin:auto}
+input{width:90%;padding:12px;border-radius:8px;border:none;margin:10px 0}
+button{background:#0f0;color:#000;padding:12px 20px;border:none;border-radius:8px;font-weight:bold;cursor:pointer;margin:5px}
+a{color:#0f0;display:block;margin:8px 0;text-decoration:none;border:1px solid #0f0;padding:10px;border-radius:8px}
+</style>
+</head>
+<body>
+<h2>🔍 Insta Fake Clone Detector</h2>
+<p>Check if someone is using your name to create a fake ID</p>
+
+<div class="box">
+<input id="user" placeholder="Enter your Instagram Username (without @)">
+<button onclick="check()">Check Now</button>
+<div id="result" style="margin-top:20px;text-align:left"></div>
+</div>
+
+<script>
+function check(){
+let u=document.getElementById('user').value.trim();
+if(!u){alert('Please enter username!');return}
+let r=document.getElementById('result');
+r.innerHTML = `
+<h3>Result for: ${u}</h3>
+<p>Click on the links below to check:</p>
+<a href="https://www.google.com/search?q=site:instagram.com+${u}" target="_blank">1. Search ${u} on Google</a>
+<a href="https://www.google.com/search?q=${u}+instagram+fake+account" target="_blank">2. Check fake account reports</a>
+<a href="https://www.instagram.com/${u}_" target="_blank">3. Check: ${u}_ (underscore clone)</a>
+<a href="https://www.instagram.com/${u}.official" target="_blank">4. Check: ${u}.official</a>
+<a href="https://images.google.com/" target="_blank">5. Check your DP on Google Reverse Image Search</a>
+<p style="color:yellow">Tip: If you find a fake account, report it on Instagram > Report > Pretending to be someone.</p>
+`;
+}
+</script>
+</body>
+</html>
