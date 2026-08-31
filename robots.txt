@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devilking85447.github.io/Blackcathacks/sitemap.xml
