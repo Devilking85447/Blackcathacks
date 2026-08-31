@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="sHpbcz8uzttv2bkiUUPbJFbJEhIJa9eFxZBbp4r1FIc" />
 <title>BlackCatHacks.in</title>
 <style>
 body{background:#000;color:#fff;font-family:Arial;margin:0;padding:10px}
@@ -64,7 +65,7 @@ document.getElementById('passInput').addEventListener('input', function(){
   let p = this.value;
   let score = 0;
   if(p.length>6) score++; if(p.length>10) score++; if(/[A-Z]/.test(p)) score++; if(/[0-9]/.test(p)) score++; if(/[^A-Za-z0-9]/.test(p)) score++;
-  let txt = ["Very Weak 🔴","Weak 🟠","Medium 🟡","Strong 🟢","Very Strong 🟢🟢"][score] || "Very Weak 🔴";
+  let txt = ["Very Weak 🔴","Weak 🟠","Medium 🟡","Strong 🟢","Very Strong 🟢🟢"][Math.min(score,4)];
   document.getElementById('passResult').innerText = p? txt : "";
 });
 
