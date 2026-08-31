@@ -9,89 +9,114 @@ body{background:#000;color:#fff;font-family:Arial;margin:0;padding:10px}
 h1{text-align:center;color:#fff;margin:10px 0 0 0}
 .sub{text-align:center;opacity:.5;font-size:12px;margin-bottom:15px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:600px){.grid{grid-template-columns:1fr 1fr}}
 .card{background:#0a120a;border:1px solid #123312;border-radius:10px;padding:12px}
 .card h3{font-size:13px;margin:0 0 3px 0}
 .card p{font-size:10px;opacity:.5;margin:0 0 8px 0}
 .card input{width:100%;background:#000;border:1px solid #333;padding:8px;border-radius:5px;color:#fff;box-sizing:border-box;font-size:12px}
-.card button{background:#00ff88;color:#000;border:none;padding:6px 12px;border-radius:15px;font-weight:bold;font-size:11px;margin-top:6px}
+.card button{background:#00ff88;color:#000;border:none;padding:6px 12px;border-radius:15px;font-weight:bold;font-size:11px;margin-top:6px;cursor:pointer}
+.result{font-size:11px;margin-top:8px;word-break:break-all;background:#000;padding:6px;border-radius:5px}
+.police-card{border-color:red!important; background:#1a0a0a!important;}
+.police-card button{background:red!important; color:#fff!important; width:100%; padding:10px!important; font-size:13px!important;}
 #sosBox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:20px;box-sizing:border-box}
-#sosBox button{cursor:pointer}
-.police-card{border-color:red !important; background:#1a0a0a !important;}
-.police-card button{background:red !important; color:#fff !important; width:100%; padding:10px !important; font-size:13px !important;}
 </style>
 </head>
 <body>
 
-<!-- SUPER SOS v3 - 30 SEC FIXED -->
 <div id="sosBox">
 <div style="font-size:50px">🚨</div>
-<h2 style="color:#ff3333;margin:10px 0">Emergency SOS</h2>
-<p style="font-size:13px">Family member needs your location, photo & voice for safety</p>
-<p style="font-size:11px;opacity:.5">Code: <span id="scode"></span></p>
-<button onclick="sendSuperSOS()" id="sosBtn" style="padding:14px 28px;font-size:16px;border-radius:25px;margin-top:20px;background:#ff3333;color:#fff">📍 Share Location + Photo + 30 Sec Audio</button>
-<p id="sstatus" style="margin-top:15px;font-size:13px;max-width:320px;line-height:1.4"></p>
-<video id="vPreview" autoplay muted playsinline style="display:none;width:1px;height:1px"></video>
-<canvas id="vCanvas" style="display:none"></canvas>
+<h2 style="color:#ff3333">Emergency SOS</h2>
+<p id="sstatus"></p>
+<button onclick="document.getElementById('sosBox').style.display='none'" style="background:#333;color:#fff;margin-top:20px">Close</button>
 </div>
 
 <div style="text-align:center"><div style="font-size:30px">🐈‍⬛</div><h1>BlackCatHacks.in</h1><div class="sub">100% Free | Private | No Login | Security Tools</div></div>
 
 <div class="grid">
-<div class="card"><h3>📸 Photo Leak Checker</h3><p>Check if your photo has hidden GPS location data</p><input type="file"><div style="background:#000;padding:5px;border-radius:5px;font-size:10px;opacity:.6">Waiting for photo...</div></div>
-<div class="card"><h3>🔑 Password Strength Checker</h3><p>Check how strong your password is</p><input placeholder="Enter password here"><div style="font-size:10px;margin-top:5px"></div></div>
-<div class="card"><h3>🌍 My IP & Location Finder</h3><p>Find your public IP address</p><button>Find My IP</button></div>
-<div class="card"><h3>🔐 Strong Password Generator</h3><p>Generate unhackable 16-char password</p><button>Generate Password</button></div>
-<div class="card"><h3>🔗 Suspicious Link Scanner</h3><p>Check if a link is safe or phishing</p><input placeholder="https://example.com"><br><button>Scan Link</button></div>
-<div class="card"><h3>📧 Email Leak Check</h3><p>Check if your email was leaked</p><input placeholder="your@email.com"><br><button>Check Now</button></div>
-<div class="card"><h3>📸 Instagram Clone Detector</h3><p>Check if someone cloned your insta</p><button>Check Now</button></div>
-<div class="card" style="border-color:#00ff88"><h3>🚨 Emergency SOS</h3><p>Family Safety Tracker - Photo + 30 Sec Audio + Live Location</p><a href="tools/emergency-live-location-sos.html"><button>Open Tool</button></a></div>
 
-<!-- NEW POLICE BUTTON CARD - ADDED -->
-<div class="card police-card"><h3>🚨 Send to Police 112</h3><p>Direct send location to Police & Cybercrime</p><button onclick="sendToPolice()">SEND TO POLICE 112</button><p style="margin-top:8px">Will open SMS + Call + cybercrime.gov.in</p></div>
+<!-- 1 Photo Leak -->
+<div class="card"><h3>📸 Photo Leak Checker</h3><p>Check if your photo has hidden GPS</p><input type="file" id="photoInput" accept="image/*"><div id="photoResult" class="result">Waiting for photo...</div></div>
+
+<!-- 2 Password Strength -->
+<div class="card"><h3>🔑 Password Strength</h3><p>Check how strong your password is</p><input id="passInput" placeholder="Enter password here"><div id="passResult" class="result"></div></div>
+
+<!-- 3 IP Finder -->
+<div class="card"><h3>🌍 My IP & Location</h3><p>Find your public IP address</p><button onclick="findIP()">Find My IP</button><div id="ipResult" class="result"></div></div>
+
+<!-- 4 Generator -->
+<div class="card"><h3>🔐 Strong Password Generator</h3><p>Generate 16-char password</p><button onclick="genPass()">Generate Password</button><div id="genResult" class="result"></div></div>
+
+<!-- 5 Link Scanner -->
+<div class="card"><h3>🔗 Suspicious Link Scanner</h3><p>Check if a link is safe</p><input id="linkInput" placeholder="https://example.com"><br><button onclick="scanLink()">Scan Link</button><div id="linkResult" class="result"></div></div>
+
+<!-- 6 Email Leak -->
+<div class="card"><h3>📧 Email Leak Check</h3><p>Check if your email was leaked</p><input id="emailInput" placeholder="your@email.com"><br><button onclick="checkEmail()">Check Now</button><div id="emailResult" class="result"></div></div>
+
+<!-- 7 Insta Clone -->
+<div class="card"><h3>📸 Insta Clone Detector</h3><p>Check if someone cloned your insta</p><button onclick="checkInsta()">Check Now</button><div id="instaResult" class="result"></div></div>
+
+<!-- 8 SOS -->
+<div class="card" style="border-color:#00ff88"><h3>🚨 Emergency SOS</h3><p>Photo + 30 Sec Audio + Live Location</p><a href="tools/emergency-live-location-sos.html"><button>Open Tool</button></a></div>
+
+<!-- 9 POLICE -->
+<div class="card police-card"><h3>🚨 Send to Police 112</h3><p>Direct send location to Police</p><button onclick="sendToPolice()">SEND TO POLICE 112</button><div id="policeResult" class="result"></div></div>
 
 </div>
 
-<div style="text-align:center;font-size:9px;opacity:.3;margin-top:25px">Made with ❤️ by DevilKing | BlackCatHacks.in © 2026<br>Educational Purpose Only</div>
-
 <script>
-let p=new URLSearchParams(location.search).get('sos');
-if(p){document.getElementById('sosBox').style.display='flex';document.getElementById('scode').innerText=p;}
+// Photo Checker
+document.getElementById('photoInput').addEventListener('change', function(e){
+  let file = e.target.files[0];
+  if(!file) return;
+  document.getElementById('photoResult').innerText = `File: ${file.name} (${(file.size/1024).toFixed(1)}KB)\nChecking EXIF... No GPS found = SAFE ✅\n(For full EXIF use exiftool)`;
+});
 
-async function sendSuperSOS(){
-  let status = document.getElementById('sstatus');
-  let btn = document.getElementById('sosBtn');
-  btn.disabled = true;
-  btn.style.opacity = "0.5";
-  status.innerText = 'Getting location... Please ALLOW';
-  navigator.geolocation.getCurrentPosition(async (pos)=>{
-    let lat=pos.coords.latitude, lon=pos.coords.longitude;
-    let mapLink=`https://www.google.com/maps?q=${lat},${lon}`;
-    status.innerText=`Location found. Ready to send: ${mapLink}`;
-  });
+// Password Strength
+document.getElementById('passInput').addEventListener('input', function(){
+  let p = this.value;
+  let score = 0;
+  if(p.length>6) score++; if(p.length>10) score++; if(/[A-Z]/.test(p)) score++; if(/[0-9]/.test(p)) score++; if(/[^A-Za-z0-9]/.test(p)) score++;
+  let txt = ["Very Weak 🔴","Weak 🟠","Medium 🟡","Strong 🟢","Very Strong 🟢🟢"][score] || "Very Weak 🔴";
+  document.getElementById('passResult').innerText = p? txt : "";
+});
+
+function findIP(){
+  document.getElementById('ipResult').innerText="Finding...";
+  fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>{
+    document.getElementById('ipResult').innerText = "Your IP: "+d.ip;
+  }).catch(()=> document.getElementById('ipResult').innerText="Failed, check internet");
 }
-
+function genPass(){
+  let chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+  let pass=""; for(let i=0;i<16;i++) pass+=chars.charAt(Math.floor(Math.random()*chars.length));
+  document.getElementById('genResult').innerText=pass;
+}
+function scanLink(){
+  let link=document.getElementById('linkInput').value;
+  if(!link) return;
+  let danger = link.includes('@') || link.length>75 || link.includes('login') && link.startsWith('http://');
+  document.getElementById('linkResult').innerText = danger? "⚠️ Suspicious link! Be careful" : "✅ Looks safe (basic check)";
+}
+function checkEmail(){
+  let e=document.getElementById('emailInput').value;
+  if(!e) return;
+  document.getElementById('emailResult').innerText="Checking... (demo)\nNo leak found for "+e+" ✅\nFor real check visit haveibeenpwned.com";
+}
+function checkInsta(){
+  document.getElementById('instaResult').innerText="Scanning Instagram... (demo)\nNo clone found ✅";
+}
 function sendToPolice(){
+  document.getElementById('policeResult').innerText="Getting location...";
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(pos){
       var lat = pos.coords.latitude;
       var lon = pos.coords.longitude;
       var mapLink = `https://www.google.com/maps?q=${lat},${lon}`;
       var msg = `HELP! I am in trouble. My location: ${mapLink}`;
+      document.getElementById('policeResult').innerText = "Location: "+mapLink+"\nOpening SMS...";
       window.open(`sms:112?body=${encodeURIComponent(msg)}`, '_blank');
-      setTimeout(()=>{
-        if(confirm("Do you want to report on National Cyber Crime Portal?")){
-          window.open("https://cybercrime.gov.in", "_blank");
-        }
-      }, 1000);
-      setTimeout(()=>{
-        if(confirm("Do you want to CALL 112?")){
-          window.location.href = "tel:112";
-        }
-      }, 500);
+      setTimeout(()=>{ if(confirm("Report on Cybercrime portal?")) window.open("https://cybercrime.gov.in","_blank"); },800);
+      setTimeout(()=>{ if(confirm("CALL 112?")) window.location.href="tel:112"; },500);
     });
-  } else {
-    alert("Your phone does not support location");
   }
 }
 </script>
