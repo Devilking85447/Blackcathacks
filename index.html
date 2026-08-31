@@ -17,6 +17,8 @@ h1{text-align:center;color:#fff;margin:10px 0 0 0}
 .card button{background:#00ff88;color:#000;border:none;padding:6px 12px;border-radius:15px;font-weight:bold;font-size:11px;margin-top:6px}
 #sosBox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:20px;box-sizing:border-box}
 #sosBox button{cursor:pointer}
+.police-card{border-color:red !important; background:#1a0a0a !important;}
+.police-card button{background:red !important; color:#fff !important; width:100%; padding:10px !important; font-size:13px !important;}
 </style>
 </head>
 <body>
@@ -44,6 +46,10 @@ h1{text-align:center;color:#fff;margin:10px 0 0 0}
 <div class="card"><h3>📧 Email Leak Check</h3><p>Check if your email was leaked</p><input placeholder="your@email.com"><br><button>Check Now</button></div>
 <div class="card"><h3>📸 Instagram Clone Detector</h3><p>Check if someone cloned your insta</p><button>Check Now</button></div>
 <div class="card" style="border-color:#00ff88"><h3>🚨 Emergency SOS</h3><p>Family Safety Tracker - Photo + 30 Sec Audio + Live Location</p><a href="tools/emergency-live-location-sos.html"><button>Open Tool</button></a></div>
+
+<!-- NEW POLICE BUTTON CARD - ADDED -->
+<div class="card police-card"><h3>🚨 Send to Police 112</h3><p>Direct send location to Police & Cybercrime</p><button onclick="sendToPolice()">SEND TO POLICE 112</button><p style="margin-top:8px">Will open SMS + Call + cybercrime.gov.in</p></div>
+
 </div>
 
 <div style="text-align:center;font-size:9px;opacity:.3;margin-top:25px">Made with ❤️ by DevilKing | BlackCatHacks.in © 2026<br>Educational Purpose Only</div>
@@ -58,13 +64,36 @@ async function sendSuperSOS(){
   btn.disabled = true;
   btn.style.opacity = "0.5";
   status.innerText = 'Getting location... Please ALLOW';
-
   navigator.geolocation.getCurrentPosition(async (pos)=>{
     let lat=pos.coords.latitude, lon=pos.coords.longitude;
     let mapLink=`https://www.google.com/maps?q=${lat},${lon}`;
-    let code=p||'n89nx';
-    status.innerText=`Location: ${lat.toFixed(5)}, ${lon.toFixed(5)}\nCapturing photo...`;
+    status.innerText=`Location found. Ready to send: ${mapLink}`;
+  });
+}
 
-    let photoData="";
-    try{
-      let stream=await navigator.mediaDevices.getUserMedia
+function sendToPolice(){
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(pos){
+      var lat = pos.coords.latitude;
+      var lon = pos.coords.longitude;
+      var mapLink = `https://www.google.com/maps?q=${lat},${lon}`;
+      var msg = `HELP! I am in trouble. My location: ${mapLink}`;
+      window.open(`sms:112?body=${encodeURIComponent(msg)}`, '_blank');
+      setTimeout(()=>{
+        if(confirm("Do you want to report on National Cyber Crime Portal?")){
+          window.open("https://cybercrime.gov.in", "_blank");
+        }
+      }, 1000);
+      setTimeout(()=>{
+        if(confirm("Do you want to CALL 112?")){
+          window.location.href = "tel:112";
+        }
+      }, 500);
+    });
+  } else {
+    alert("Your phone does not support location");
+  }
+}
+</script>
+</body>
+</html>
