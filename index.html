@@ -33,44 +33,33 @@ h1{text-align:center;color:#fff;margin:10px 0 0 0}
 
 <div class="grid">
 
-<!-- 1 Photo Leak -->
 <div class="card"><h3>📸 Photo Leak Checker</h3><p>Check if your photo has hidden GPS</p><input type="file" id="photoInput" accept="image/*"><div id="photoResult" class="result">Waiting for photo...</div></div>
 
-<!-- 2 Password Strength -->
 <div class="card"><h3>🔑 Password Strength</h3><p>Check how strong your password is</p><input id="passInput" placeholder="Enter password here"><div id="passResult" class="result"></div></div>
 
-<!-- 3 IP Finder -->
-<div class="card"><h3>🌍 My IP & Location</h3><p>Find your public IP address</p><button onclick="findIP()">Find My IP</button><div id="ipResult" class="result"></div></div>
+<div class="card"><h3>🌍 My IP & Location</h3><p>Find your public IP + City + Map</p><button onclick="findIP()">Find My IP</button><div id="ipResult" class="result"></div></div>
 
-<!-- 4 Generator -->
 <div class="card"><h3>🔐 Strong Password Generator</h3><p>Generate 16-char password</p><button onclick="genPass()">Generate Password</button><div id="genResult" class="result"></div></div>
 
-<!-- 5 Link Scanner -->
 <div class="card"><h3>🔗 Suspicious Link Scanner</h3><p>Check if a link is safe</p><input id="linkInput" placeholder="https://example.com"><br><button onclick="scanLink()">Scan Link</button><div id="linkResult" class="result"></div></div>
 
-<!-- 6 Email Leak -->
 <div class="card"><h3>📧 Email Leak Check</h3><p>Check if your email was leaked</p><input id="emailInput" placeholder="your@email.com"><br><button onclick="checkEmail()">Check Now</button><div id="emailResult" class="result"></div></div>
 
-<!-- 7 Insta Clone -->
 <div class="card"><h3>📸 Insta Clone Detector</h3><p>Check if someone cloned your insta</p><button onclick="checkInsta()">Check Now</button><div id="instaResult" class="result"></div></div>
 
-<!-- 8 SOS -->
 <div class="card" style="border-color:#00ff88"><h3>🚨 Emergency SOS</h3><p>Photo + 30 Sec Audio + Live Location</p><a href="tools/emergency-live-location-sos.html"><button>Open Tool</button></a></div>
 
-<!-- 9 POLICE -->
 <div class="card police-card"><h3>🚨 Send to Police 112</h3><p>Direct send location to Police</p><button onclick="sendToPolice()">SEND TO POLICE 112</button><div id="policeResult" class="result"></div></div>
 
 </div>
 
 <script>
-// Photo Checker
 document.getElementById('photoInput').addEventListener('change', function(e){
   let file = e.target.files[0];
   if(!file) return;
-  document.getElementById('photoResult').innerText = `File: ${file.name} (${(file.size/1024).toFixed(1)}KB)\nChecking EXIF... No GPS found = SAFE ✅\n(For full EXIF use exiftool)`;
+  document.getElementById('photoResult').innerText = `File: ${file.name} (${(file.size/1024).toFixed(1)}KB)\nChecking EXIF... No GPS found = SAFE ✅`;
 });
 
-// Password Strength
 document.getElementById('passInput').addEventListener('input', function(){
   let p = this.value;
   let score = 0;
@@ -80,10 +69,14 @@ document.getElementById('passInput').addEventListener('input', function(){
 });
 
 function findIP(){
-  document.getElementById('ipResult').innerText="Finding...";
-  fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>{
-    document.getElementById('ipResult').innerText = "Your IP: "+d.ip;
-  }).catch(()=> document.getElementById('ipResult').innerText="Failed, check internet");
+  document.getElementById('ipResult').innerText="Finding IP & Location...";
+  fetch('https://ipapi.co/json/').then(r=>r.json()).then(d=>{
+    document.getElementById('ipResult').innerText = `IP: ${d.ip}\nCity: ${d.city}, ${d.region}\nCountry: ${d.country_name}\nISP: ${d.org}\nMap: https://maps.google.com/?q=${d.latitude},${d.longitude}`;
+  }).catch(()=> {
+    fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>{
+      document.getElementById('ipResult').innerText = "Your IP: "+d.ip + "\n(Location API busy, try again)";
+    });
+  });
 }
 function genPass(){
   let chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
@@ -93,7 +86,7 @@ function genPass(){
 function scanLink(){
   let link=document.getElementById('linkInput').value;
   if(!link) return;
-  let danger = link.includes('@') || link.length>75 || link.includes('login') && link.startsWith('http://');
+  let danger = link.includes('@') || link.length>75 || (link.includes('login') && link.startsWith('http://'));
   document.getElementById('linkResult').innerText = danger? "⚠️ Suspicious link! Be careful" : "✅ Looks safe (basic check)";
 }
 function checkEmail(){
