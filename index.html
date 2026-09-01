@@ -6,22 +6,24 @@
 <meta name="google-site-verification" content="sHpbcz8uzttv2bkiUUPbJFbJEhIJa9eFxZBbp4r1FIc" />
 <title>BlackCatHacks.in</title>
 <style>
-body{background:#000;color:#fff;font-family:Arial;margin:0;padding:10px}
-h1{text-align:center;color:#fff;margin:10px 0 0 0}
+body{background:#000;color:#fff;font-family:Arial;margin:0;padding:10px;overflow-x:hidden}
+#matrix{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.30;pointer-events:none}
+h1{text-align:center;color:#fff;margin:10px 0 0 0;text-shadow:0 0 10px #00ff88}
 .sub{text-align:center;opacity:.5;font-size:12px;margin-bottom:15px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card{background:#0a120a;border:1px solid #123312;border-radius:10px;padding:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative;z-index:2}
+.card{background:rgba(10,18,10,0.90);border:1px solid #123312;border-radius:10px;padding:12px;backdrop-filter:blur(2px)}
 .card h3{font-size:13px;margin:0 0 3px 0}
 .card p{font-size:10px;opacity:.5;margin:0 0 8px 0}
 .card input{width:100%;background:#000;border:1px solid #333;padding:8px;border-radius:5px;color:#fff;box-sizing:border-box;font-size:12px}
 .card button{background:#00ff88;color:#000;border:none;padding:6px 12px;border-radius:15px;font-weight:bold;font-size:11px;margin-top:6px;cursor:pointer}
 .result{font-size:11px;margin-top:8px;word-break:break-all;background:#000;padding:6px;border-radius:5px}
-.police-card{border-color:red!important; background:#1a0a0a!important;}
+.police-card{border-color:red!important; background:rgba(26,10,10,0.90)!important;}
 .police-card button{background:red!important; color:#fff!important; width:100%; padding:10px!important; font-size:13px!important;}
 #sosBox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:20px;box-sizing:border-box}
 </style>
 </head>
 <body>
+<canvas id="matrix"></canvas>
 
 <div id="sosBox">
 <div style="font-size:50px">🚨</div>
@@ -30,7 +32,7 @@ h1{text-align:center;color:#fff;margin:10px 0 0 0}
 <button onclick="document.getElementById('sosBox').style.display='none'" style="background:#333;color:#fff;margin-top:20px">Close</button>
 </div>
 
-<div style="text-align:center"><div style="font-size:30px">🐈‍⬛</div><h1>BlackCatHacks.in</h1><div class="sub">100% Free | Private | No Login | Security Tools</div></div>
+<div style="text-align:center;position:relative;z-index:2"><div style="font-size:30px">🐈‍⬛</div><h1>BlackCatHacks.in</h1><div class="sub">100% Free | Private | No Login | Security Tools</div></div>
 
 <div class="grid">
 
@@ -52,7 +54,7 @@ h1{text-align:center;color:#fff;margin:10px 0 0 0}
 
 <div class="card police-card"><h3>🚨 Send to Police 112</h3><p>Direct send location to Police</p><button onclick="sendToPolice()">SEND TO POLICE 112</button><div id="policeResult" class="result"></div></div>
 
-</div><div class="card" style="border-color:#0f0">
+</div><div class="card" style="border-color:#0f0;position:relative;z-index:2;margin-top:10px">
 <h3>🤖 BlackCat AI Chat</h3>
 <p>AI se kuch bhi pucho</p>
 <div id="aiChat" style="height:150px;overflow-y:auto;background:#111;padding:5px;font-size:12px;margin:5px 0"></div>
@@ -142,6 +144,30 @@ function sendToPolice(){
     });
   }
 }
+</script>
+
+<script>
+// ===== MULTI-COLOR HACKER RAIN - FINAL FIXED =====
+const c=document.getElementById('matrix'),x=c.getContext('2d');
+c.width=window.innerWidth;c.height=window.innerHeight;
+const chars="01BLACKCAT@#$%&*<>".split("");
+const colors=["#00ff00","#00ffff","#ff0000","#ffff00","#ff00ff","#0080ff","#ffffff"];
+const drops=[];
+for(let i=0;i<c.width/14;i++)drops[i]={y:Math.random()*c.height/14, color:colors[Math.floor(Math.random()*colors.length)]};
+function draw(){
+  x.fillStyle='rgba(0,0,0,0.08)';x.fillRect(0,0,c.width,c.height);
+  x.font='14px monospace';
+  drops.forEach((d,i)=>{
+    if(Math.random()>0.98) d.color=colors[Math.floor(Math.random()*colors.length)];
+    x.fillStyle=d.color;x.shadowColor=d.color;x.shadowBlur=10;
+    x.fillText(chars[Math.floor(Math.random()*chars.length)],i*14,d.y*14);
+    x.shadowBlur=0;
+    if(d.y*14>c.height && Math.random()>0.975){d.y=0;d.color=colors[Math.floor(Math.random()*colors.length)];}
+    d.y++;
+  });
+}
+setInterval(draw,35);
+window.addEventListener('resize',()=>{c.width=innerWidth;c.height=innerHeight});
 </script>
 </body>
 </html>
