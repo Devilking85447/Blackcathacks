@@ -52,7 +52,36 @@ h1{text-align:center;color:#fff;margin:10px 0 0 0}
 
 <div class="card police-card"><h3>🚨 Send to Police 112</h3><p>Direct send location to Police</p><button onclick="sendToPolice()">SEND TO POLICE 112</button><div id="policeResult" class="result"></div></div>
 
+</div><div class="card" style="border-color:#0f0">
+<h3>🤖 BlackCat AI Chat</h3>
+<p>AI se kuch bhi pucho</p>
+<div id="aiChat" style="height:150px;overflow-y:auto;background:#111;padding:5px;font-size:12px;margin:5px 0"></div>
+<input id="aiInput" placeholder="Message..." style="width:65%;background:#000;color:#fff;border:1px solid #333;padding:5px">
+<button onclick="sendAI()" style="width:30%;background:#0f0;padding:5px">Send</button>
 </div>
+
+<script>
+const AI_API = "https://blackcat-secure-api.binnu0117.workers.dev/";
+async function sendAI(){
+ let t=document.getElementById('aiInput').value;
+ if(!t)return;
+ let c=document.getElementById('aiChat');
+ c.innerHTML+=`<div style="color:#0f0">You: ${t}</div>`;
+ document.getElementById('aiInput').value="";
+ c.innerHTML+=`<div id="tmp">AI soch raha hai...</div>`;
+ c.scrollTop=c.scrollHeight;
+ try{
+  let r=await fetch(AI_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:t})});
+  let d=await r.json();
+  document.getElementById('tmp').remove();
+  c.innerHTML+=`<div style="color:#fff">AI: ${d.reply}</div>`;
+ }catch(e){
+  document.getElementById('tmp').remove();
+  c.innerHTML+=`<div style="color:red">Error: ${e.message}</div>`;
+ }
+ c.scrollTop=c.scrollHeight;
+}
+</script>
 
 <script>
 document.getElementById('photoInput').addEventListener('change', function(e){
