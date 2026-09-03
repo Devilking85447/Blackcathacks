@@ -7,25 +7,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#00ff41;font-family:Consolas,monospace;padding:20px;min-height:100vh}
-body::before{content:"";position:fixed;inset:0;background:url('https://i.imgur.com/R6xTILi.png') no-repeat center; background-size:350px;opacity:.08;z-index:-1}
-.container{max-width:520px;margin:30px auto;border:1px solid #f00;background:rgba(15,15,15,.95);padding:22px;box-shadow:0 0 25px rgba(255,0,0,.35);text-align:center;border-radius:8px}
-.logo{width:110px;border:1px solid red;border-radius:12px;padding:4px;background:#000}
-h1{color:#f00;margin:10px 0;text-shadow:0 0 12px red;letter-spacing:2px}
-.sub{color:#888;font-size:12px;margin-bottom:15px}
-input{width:100%;padding:13px;background:#000;border:1px solid #f00;color:#00ff41;outline:none;font-size:15px;margin-top:10px}
-button{width:100%;padding:13px;margin-top:12px;background:#f00;color:#fff;font-weight:bold;border:none;cursor:pointer;letter-spacing:1px;font-size:14px}
-button:hover{background:#c00}
-.result{display:none;text-align:left;margin-top:20px;background:#0a0a0a;padding:15px;border-left:3px solid red;font-size:13px;line-height:1.6}
+body{background:#000;color:#00ff41;font-family:Consolas,monospace;padding:20px;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.container{max-width:520px;width:100%;margin:30px auto;border:1px solid #f00;background:#0f0f0f;padding:25px;box-shadow:0 0 30px rgba(255,0,0,.4);text-align:center;border-radius:12px}
+h1{color:#f00;margin:10px 0;text-shadow:0 0 15px red;letter-spacing:3px;font-size:38px}
+.sub{color:#888;font-size:12px;margin-bottom:18px;line-height:1.5}
+input{width:100%;padding:13px;background:#000;border:1px solid #f00;color:#00ff41;outline:none;font-size:15px;margin-top:10px;border-radius:5px}
+button{width:100%;padding:14px;margin-top:14px;background:#f00;color:#fff;font-weight:bold;border:none;cursor:pointer;letter-spacing:1px;font-size:15px;border-radius:5px}
+button:hover{background:#c00;box-shadow:0 0 15px red}
+.result{display:none;text-align:left;margin-top:20px;background:#000;padding:15px;border-left:3px solid red;font-size:13px;line-height:1.7;border-radius:5px;word-break:break-all}
 .result b{color:#f00}
 a{color:#00ff41;text-decoration:none}
 a:hover{color:#fff;text-decoration:underline}
-.tag{display:inline-block;padding:2px 8px;border:1px solid #f00;color:#f00;font-size:10px;margin-top:8px}
+.tag{display:inline-block;padding:5px 12px;border:1px solid #f00;color:#f00;font-size:10px;margin-top:12px;border-radius:4px}
 </style>
 </head>
 <body>
 <div class="container">
-<img src="https://i.imgur.com/R6xTILi.png" class="logo">
+<div style="font-size:60px;filter:drop-shadow(0 0 10px red)">☠️</div>
 <h1>RedEye</h1>
 <div class="sub">Blackcathacks | Email OSINT Tool<br>For Educational Purpose Only</div>
 <input id="email" type="email" placeholder="Enter target email: ex@gmail.com">
@@ -44,10 +42,10 @@ function runScan(){
  out.innerHTML = `
  <b>TARGET:</b> ${e}<br>
  <b>MD5 HASH:</b> <span style="color:#888">${hash}</span><br><br>
- <img src="https://www.gravatar.com/avatar/${hash}?d=404&s=200" width="90" style="border-radius:50%;border:2px solid red;margin-bottom:10px" onload="document.getElementById('g').innerHTML='<span style=color:#0f0>✓ Gravatar Found</span>'" onerror="this.style.display='none';document.getElementById('g').innerHTML='<span style=color:#888>✗ No Gravatar</span>'">
- <div id="g">Checking Gravatar...</div>
+ <center><img src="https://www.gravatar.com/avatar/${hash}?d=404&s=200" width="90" style="border-radius:50%;border:2px solid red;margin-bottom:10px" onload="document.getElementById('g').innerHTML='<span style=color:#0f0>✓ Gravatar Found - Profile Exists</span>'" onerror="this.style.display='none';document.getElementById('g').innerHTML='<span style=color:#888>✗ No Gravatar Found</span>'"></center>
+ <div id="g" style="text-align:center">Checking Gravatar...</div>
  <br>
- <b>QUICK OSINT:</b><br><br>
+ <b>QUICK OSINT LINKS:</b><br><br>
  🔗 <a href="https://en.gravatar.com/${hash}" target="_blank">View Gravatar Profile</a><br><br>
  🔗 <a href="https://haveibeenpwned.com/account/${e}" target="_blank">Check Data Breach (HIBP)</a><br><br>
  🔗 <a href="https://www.google.com/search?q=%22${e}%22" target="_blank">Google Dork Email</a><br><br>
