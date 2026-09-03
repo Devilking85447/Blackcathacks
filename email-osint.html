@@ -3,66 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RedEyeLab Email OSINT</title>
+<title>RedEye - Email OSINT</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
 <style>
-body{
-  background:#000;
-  color:#00ff41;
-  font-family:monospace;
-  padding:15px;
-  margin:0;
-  position:relative;
-  min-height:100vh;
-}
-body::before{
-  content:"";
-  position:fixed;
-  top:0; left:0; right:0; bottom:0;
-  background: url('logo.png') no-repeat center center;
-  background-size: 450px;
-  opacity:0.12;
-  filter: drop-shadow(0 0 20px red);
-  z-index:-1;
-}
-.box{max-width:650px;margin:30px auto;border:1px solid #ff0000;padding:20px;text-align:center;background:rgba(10,10,10,0.85);box-shadow:0 0 25px #ff000030;backdrop-filter:blur(3px)}
-.logo{width:100px;height:100px;border-radius:50%;border:2px solid #ff0000;box-shadow:0 0 20px #ff0000;object-fit:cover}
-input{width:95%;padding:12px;background:#111;color:#fff;border:1px solid #00ff41;text-align:left;margin-top:10px}
-button{width:98%;padding:12px;margin-top:10px;background:#ff0000;color:#fff;font-weight:bold;cursor:pointer;border:none;letter-spacing:2px;box-shadow:0 0 10px #ff0000}
-button:hover{background:#cc0000}
-.card{background:#111;padding:12px;margin-top:15px;display:none;border-left:3px solid red;text-align:left}
-a{color:#29b6f6}
-h2 span{color:#ff0000;text-shadow:0 0 10px red}
+body { background:#000; color:#00ff41; font-family:monospace; padding:20px; margin:0; min-height:100vh; }
+body::before { content:""; position:fixed; top:0; left:0; right:0; bottom:0; background:url('https://i.imgur.com/R6xTILi.png') no-repeat center center; background-size:400px; opacity:0.07; z-index:-1; filter: drop-shadow(0 0 20px red); }
+.box { max-width:500px; margin:40px auto; border:1px solid #FF0000; padding:20px; text-align:center; background:rgba(10,10,10,0.9); box-shadow: 0 0 20px rgba(255,0,0,0.3); }
+.logo { width:100px; border:1px solid #FF0000; border-radius:10px; padding:5px; background:#000; }
+h1 { color:#FF0000; text-shadow: 0 0 10px red; }
+input { width:90%; padding:12px; margin-top:15px; background:#000; border:1px solid #FF0000; color:#00ff41; outline:none; }
+button { width:92%; padding:12px; margin-top:15px; background:#FF0000; color:#fff; font-weight:bold; border:none; cursor:pointer; letter-spacing:1px; }
+button:hover { background:#cc0000; box-shadow: 0 0 10px red; }
+.card { background:#111; margin-top:20px; padding:15px; display:none; border-left:3px solid red; text-align:left; }
+a { color:#00ff41; text-decoration:none; border-bottom:1px dotted #00ff41; }
+a:hover { color:#fff; }
 </style>
 </head>
 <body>
+
 <div class="box">
-<img src="logo.png" class="logo" alt="RedEyeLab" onerror="this.src='https://i.imgur.com/8Km9tLL.png'">
-<h2>👁️ <span>RedEyeLab</span></h2>
-<h3 style="margin-top:-15px">Email OSINT Tool</h3>
-<p style="color:#888;font-size:12px">BlackCatHacks | For Educational Purpose Only</p>
+<img src="https://i.imgur.com/R6xTILi.png" class="logo" alt="RedEye">
+<h2 style="color:white;">Email OSINT Tool</h2>
+<p style="color:#888; font-size:12px;">Blackcathacks | For Educational Purpose Only</p>
 
 <input id="email" type="email" placeholder="target@gmail.com">
-<button onclick="run()">[ INVESTIGATE ]</button>
+<button onclick="run()">SCAN EMAIL</button>
+
 <div id="out" class="card"></div>
 </div>
 
 <script>
 function run(){
-let e=document.getElementById('email').value.trim().toLowerCase();
-if(!e){alert("Enter email");return}
-let hash=md5(e);
-let gravatar=`https://www.gravatar.com/avatar/${hash}?d=404&s=200`;
-let out=document.getElementById('out');
-out.style.display='block';
-out.innerHTML=`
-<h3 style="color:#ff0000">${e}</h3>
-<img src="${gravatar}" onerror="this.style.display='none'" width="70" style="border-radius:50%;border:2px solid red"><br><br>
-<b>Gravatar:</b> <a href="https://en.gravatar.com/site/check/${e}" target="_blank">Check Photo</a><br>
-<b>Epieos:</b> <a href="https://epieos.com/?q=${e}" target="_blank">Full Report</a><br>
-<b>HIBP:</b> <a href="https://haveibeenpwned.com/account/${e}" target="_blank">Breach Check</a><br>
-<b>Google Dork:</b> <a href="https://www.google.com/search?q=%22${e}%22" target="_blank">Search</a><br>
-`;
+ let e = document.getElementById('email').value.trim().toLowerCase();
+ if(!e || !e.includes('@')){ alert('Enter valid Email!'); return; }
+ let hash = md5(e);
+ let out = document.getElementById('out');
+ out.style.display = 'block';
+ out.innerHTML = `
+ <b style="color:#FF0000;">Results for: ${e}</b><br><br>
+ <img id="gravatar" src="https://www.gravatar.com/avatar/${hash}?d=404&s=200" width="80" style="border-radius:50%; border:2px solid red; display:block; margin-bottom:10px;" onerror="this.style.display='none'">
+ <div id="gtext">Checking Gravatar...</div>
+ <br>
+ <b>OSINT LINKS:</b><br><br>
+ 👤 <a href="https://en.gravatar.com/${hash}" target="_blank">Check Gravatar Profile</a><br><br>
+ 🔓 <a href="https://haveibeenpwned.com/account/${e}" target="_blank">Check Breach - HaveIBeenPwned</a><br><br>
+ 🔍 <a href="https://www.google.com/search?q=%22${e}%22" target="_blank">Google Dork Search</a><br><br>
+ <small style="color:#888;">MD5: ${hash}</small>
+ `;
+ 
+ // check if gravatar exists
+ let img = document.getElementById('gravatar');
+ img.onload = function(){ document.getElementById('gtext').innerHTML = '<span style="color:#00ff41;">Gravatar Found! User has Gravatar account.</span>'; }
+ img.onerror = function(){ document.getElementById('gtext').innerHTML = '<span style="color:#888;">No Gravatar found for this email.</span>'; }
 }
 </script>
 </body>
