@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universal Link Joiner - BlackCatHacks</title>
+<style>
+body{font-family:Arial;background:#0f0f0f;color:#fff;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0}
+.box{background:#1a1a1a;padding:25px;border-radius:12px;width:90%;max-width:450px;border:1px solid #333;text-align:center}
+input{width:90%;padding:12px;border-radius:8px;border:none;outline:none;margin:15px 0;background:#222;color:#fff}
+button{padding:12px 20px;border:none;border-radius:8px;background:#00ff88;color:#000;font-weight:bold;cursor:pointer;width:100%}
+#result{margin-top:15px;font-size:14px;color:#aaa}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>🚀 Universal Link Joiner</h2>
+<p>Koi bhi WhatsApp / Telegram / Discord Link Paste Karo</p>
+<input type="text" id="linkInput" placeholder="https://chat.whatsapp.com/... paste karo">
+<button onclick="joinLink()">Join Now - 1 Click Me</button>
+<div id="result"></div>
+</div>
+
+<script>
+function joinLink(){
+  let link = document.getElementById('linkInput').value.trim();
+  if(!link){ alert('Pehle link paste kar bhai!'); return; }
+  if(!link.startsWith('http')){ link = 'https://' + link; }
+  
+  let type = '';
+  if(link.includes('whatsapp.com') || link.includes('wa.me')) type = 'WhatsApp Group';
+  else if(link.includes('t.me') || link.includes('telegram.me')) type = 'Telegram Channel/Group';
+  else if(link.includes('discord.gg') || link.includes('discord.com')) type = 'Discord Server';
+  else type = 'Direct Link';
+
+  document.getElementById('result').innerHTML = `✅ ${type} Detected!<br>Redirecting...`;
+  
+  // 1 sec baad auto join
+  setTimeout(()=>{ window.open(link, '_blank'); }, 1000);
+}
+</script>
+</body>
+</html>
