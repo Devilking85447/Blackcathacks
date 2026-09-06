@@ -1,0 +1,50 @@
+name: BlackCatHacks Daily Team
+
+on:
+  schedule:
+    - cron: '0 3:30 * * *'  # 9:00 AM IST = 3:30 AM UTC
+  workflow_dispatch:  # Manual run button
+
+jobs:
+  daily-work:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Run Protector - Security Scan
+        run: |
+          echo "🛡️ Running Protector..."
+          node protector.js || echo "Protector failed, continuing..."
+          
+      - name: Run Ranker - Find Keywords
+        run: |
+          echo "📈 Running Ranker..."
+          node ranker.js
+
+      - name: Run Builder - Build New Tool
+        run: |
+          echo "🛠️ Running Builder..."
+          node builder.js || echo "Builder skipped"
+
+      - name: Run Writer - Write Blog
+        run: |
+          echo "✍️ Running Writer..."
+          node writer.js
+
+      - name: Commit Reports & New Files
+        run: |
+          git config --global user.name "BlackCatHacks Bot"
+          git config --global user.email "bot@blackcathacks.com"
+          git add .
+          git commit -m "Daily Team Work: $(date +'%Y-%m-%d') - Auto scan, keyword, tool, blog" || echo "No changes"
+          git push
+
+      - name: Work Done
+        run: echo "🎉 Daily Team Work Completed Boss!"
