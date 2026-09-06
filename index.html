@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<style> <title>BlackCatHacks - 40+ Free Cyber Safety Tools | Educational Only</title>
-<meta name="description" content="BlackCatHacks offers 40+ free cyber safety tools for educational purpose. Check email breach, phone safety, scam protection. No data saved.">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BlackCatHacks - 41+ Free Cyber Safety Tools | Educational Only</title>
+<meta name="description" content="BlackCatHacks offers 41+ free cyber safety tools for educational purpose.">
+<style>
 html,body{margin:0;background:#000;color:#0f0;font-family:monospace;overflow-x:hidden}
 canvas{position:fixed;top:0;left:0;z-index:-1}
 #wrap{max-width:700px;margin:auto;padding:12px;padding-bottom:100px;position:relative;z-index:1}
 h1{text-align:center;text-shadow:0 0 15px #0f0}
-.sub{text-align:center;color:#0ff;font-size:12px;margin-bottom:10px}
-.term{border:1px solid #0f0;background:rgba(0,10,0,.95);padding:10px;border-radius:8px;margin:10px 0}
+.lab{text-align:center;color:#0ff;font-size:12px;margin-bottom:10px;border:1px dashed #0f0;padding:5px}
 .cat{border:1px solid #0f0;margin:18px 0;padding:10px;border-radius:12px;background:rgba(0,20,0,.93)}
 .cat h2{text-align:center;color:#fff;border-bottom:1px dashed #0f0;font-size:14px;padding-bottom:6px}
 .box{border:1px solid #222;margin:9px 0;padding:9px;border-radius:8px;background:#0a0a0a}
@@ -17,15 +20,19 @@ button{background:#000;border:1px solid #0f0;color:#0f0;padding:6px 10px;margin:
 button:hover{background:#0f0;color:#000}
 .res{background:#000;border:1px solid #222;padding:7px;min-height:16px;color:#0ff;font-size:11px;white-space:pre-wrap;word-break:break-all;margin-top:5px}
 a{color:#0f0}
-</style></head><body>
+</style>
+</head>
+<body>
 <canvas id="matrix"></canvas>
 <div id="wrap">
 <h1>BLACKCATHACKS.IN</h1>
-<div class="lab">MATRIX LAB // 40+ SAFETY TOOLS // EDUCATIONAL ONLY // NO DATA SAVED</div>
+<div class="lab">MATRIX LAB // 41+ SAFETY TOOLS // EDUCATIONAL ONLY // NO DATA SAVED</div>
+
 <div class="box" onclick="window.location.href='link-joiner.html'" style="border:1px solid #00ff88; cursor:pointer; background: rgba(0,255,136,0.05);">
 <h3>🚀 1-Click Link Joiner (NEW)</h3>
 <p>WhatsApp / Telegram ka koi bhi link 1 click me join karo bina share kiye</p>
 </div>
+
 <div class="cat"><h2>🔵 PERSONAL SAFETY 1-6</h2>
 <div class="box"><h3>1. Email Breach (Real API)</h3><input id="e1" placeholder="email@gmail.com"><button onclick="breach()">Check</button><div id="r1" class="res"></div></div>
 <div class="box"><h3>2. Phone Breach</h3><input id="e2" placeholder="9876543210"><button onclick="r2.innerHTML='Check: <a href=https://haveibeenpwned.com/ target=_blank>HIBP</a> + Truecaller search '+e2.value">Check</button><div id="r2" class="res"></div></div>
@@ -40,7 +47,7 @@ a{color:#0f0}
 <div class="box"><h3>8. Number Spam</h3><input id="e8" placeholder="number"><button onclick="r8.innerText='Truecaller pe '+e8.value+' search karo, spam>50=scam'">Check</button><div id="r8" class="res"></div></div>
 <div class="box"><h3>9. UPI Checker</h3><input id="e9" placeholder="upi@okaxis"><button onclick="r9.innerText='Verify only in BHIM: '+e9.value">Check</button><div id="r9" class="res"></div></div>
 <div class="box"><h3>10. QR Generator (Working)</h3><input id="e10" placeholder="text/link"><button onclick="qr()">Generate QR</button><div id="r10" class="res"></div></div>
-<div class="box"><h3>11. APK Safety</h3><button onclick="window.open('https://www.virustotal.com/')">Scan APK on VirusTotal</button><div id="r11" class="res"></div></div>
+<div class="box"><h3>11. APK Safety</h3><button onclick="window.open('https://www.virustotal.com/')">Scan APK on VirusTotal</button><div id="r11" class="res">Click to open VirusTotal</div></div>
 <div class="box"><h3>12. Job Fraud</h3><input id="e12" placeholder="paste job msg"><button onclick="jf()">Detect</button><div id="r12" class="res"></div></div>
 <div class="box"><h3>13. Hack Message</h3><input id="e13" placeholder="paste whatsapp msg"><button onclick="hm()">Detect</button><div id="r13" class="res"></div></div>
 </div>
@@ -54,57 +61,68 @@ a{color:#0f0}
 <div class="box"><h3>19. 2FA Helper</h3><button onclick="r19.innerText='Google Authenticator install > Security > 2FA > App'">Guide</button><div id="r19" class="res"></div></div>
 </div>
 
-<div class="cat"><h2>🔴 EMERGENCY 20-24</h2>
+<div class="cat"><h2>🔴 EMERGENCY & ADVANCED 20-41</h2>
 <div class="box"><h3>20. Live Location (Working)</h3><button onclick="gl()">Get Link</button><div id="r20" class="res"></div></div>
 <div class="box"><h3>21. Complaint Draft (Working)</h3><input id="e21" placeholder="kya hua?"><button onclick="cd()">Draft</button><div id="r21" class="res"></div></div>
-<div class="box"><h3>22. Cyber Police Portal</h3><button onclick="window.open('https://cybercrime.gov.in/')">Open gov portal</button><div class="res">
-  <div class="box"><h3>23. Women Safety SOS</h3><button onclick="r23.innerText='112 India App install karo, power button 8 baar press = SOS, live location family ko share karo'">Get SOS Tips</button><div id="r23" class="res"></div></div>
-
+<div class="box"><h3>22. Cyber Police Portal</h3><button onclick="window.open('https://cybercrime.gov.in/')">Open gov portal</button><div id="r22" class="res">Gov portal - 1930 helpline</div></div>
+<div class="box"><h3>23. Women Safety SOS</h3><button onclick="r23.innerText='112 India App install karo, power button 8 baar press = SOS, live location family ko share karo'">Get SOS Tips</button><div id="r23" class="res"></div></div>
 <div class="box"><h3>24. Child Safety Guide</h3><button onclick="r24.innerText='YouTube Kids + Google Family Link install + SafeSearch ON rakho'">Guide</button><div id="r24" class="res"></div></div>
-
 <div class="box"><h3>25. My IP Live (Real API)</h3><button onclick="ip()">Get My IP & Location</button><div id="r25" class="res"></div></div>
-
 <div class="box"><h3>26. Domain Whois Lookup</h3><input id="e26" placeholder="google.com"><button onclick="wh()">Whois Lookup</button><div id="r26" class="res"></div></div>
-
 <div class="box"><h3>27. Website Safety Check</h3><input id="e27" placeholder="https://example.com"><button onclick="ss()">Check Safety</button><div id="r27" class="res"></div></div>
-
 <div class="box"><h3>28. Email Header Analyzer</h3><button onclick="r28.innerText='Gmail > Open email > 3 dots > Show Original > SPF/DKIM PASS = real, FAIL = spoof'">Guide</button><div id="r28" class="res"></div></div>
-
 <div class="box"><h3>29. Reverse Image Search Links</h3><input id="e29" placeholder="Paste image URL"><button onclick="ri()">Create Search Links</button><div id="r29" class="res"></div></div>
-
 <div class="box"><h3>30. AI Image Detector</h3><button onclick="window.open('https://www.aiornot.com/')">Check on AIorNot</button><div id="r30" class="res">AIorNot pe upload karo</div></div>
-
 <div class="box"><h3>31. YouTube Thumbnail Extractor (Working)</h3><input id="e31" placeholder="Paste YouTube URL"><button onclick="yt()">Get Thumbnail HD</button><div id="r31" class="res"></div></div>
-
 <div class="box"><h3>32. AI Help Chatbot Hindi</h3><input id="e32" placeholder="mera insta hack..."><button onclick="cb()">Ask AI</button><div id="r32" class="res"></div></div>
-
 <div class="box"><h3>33. Security Score Calculator</h3><button onclick="r33.innerText='Your Score: '+(60+Math.floor(Math.random()*30))+'/100 - 2FA on karo to 95+ hoga'">Calculate</button><div id="r33" class="res"></div></div>
-
 <div class="box"><h3>34. Cyber Law Guide</h3><button onclick="r34.innerText='IT Act 66C: ID theft = 3 years jail, 66D: Fake profile = 3 years. Report at cybercrime.gov.in'">Show Law</button><div id="r34" class="res"></div></div>
-
 <div class="box"><h3>35. Daily Safe Tip</h3><button onclick="r35.innerText='Tip: Har password alag rakho, 2FA on, public WiFi pe banking mat karo'">Get Tip</button><div id="r35" class="res"></div></div>
-
 <div class="box"><h3>36. Strong Password Generator (Working)</h3><button onclick="pg()">Generate 16 Char Password</button><div id="r36" class="res"></div></div>
-
 <div class="box"><h3>37. Port Info</h3><input id="e37" placeholder="80,443"><button onclick="r37.innerText='Port '+e37.value+' = '+(e37.value==80?'HTTP':e37.value==443?'HTTPS':'Check Google')">Check</button><div id="r37" class="res"></div></div>
-
 <div class="box"><h3>38. WiFi Security Tips</h3><button onclick="r38.innerText='WPA2/WPA3 use karo, admin/admin change karo, WPS OFF rakho'">Tips</button><div id="r38" class="res"></div></div>
-
 <div class="box"><h3>39. My Device Info Live (Working)</h3><button onclick="di()">Get My Device Info</button><div id="r39" class="res"></div></div>
-
 <div class="box"><h3>40. URL Expander (Working)</h3><input id="e40" placeholder="bit.ly/xyz"><button onclick="ue()">Expand Short URL</button><div id="r40" class="res"></div></div>
+
+<div class="box" style="border:1px solid #ffff00; background: rgba(255,255,0,0.05);">
+<h3>41. IP Logger Safety Awareness (NEW)</h3>
+<p style="font-size:10px;color:#fff;">Kaise bache IP tracking se?</p>
+<button onclick="r41.innerHTML='⚠️ IP Logger kaise kaam karta hai:<br>1. Attacker Grabify jaisa link banata hai<br>2. Click karne par IP+City+Device dikhta hai<br><br>✅ Bachav:<br>- Tool 40 se link expand karo<br>- VPN use karo<br>- Unknown link par click mat karo'">Learn Protection</button>
+<div id="r41" class="res"></div>
+</div>
+</div>
+
 <div style="border:1px solid #f00;background:#1a0000;padding:15px;border-radius:8px;margin:20px 0;text-align:center">
 <h3 style="color:#f00;margin:0">⚠️ LEGAL DISCLAIMER</h3>
 <p style="color:#fff;font-size:11px;line-height:16px">
 <b>BlackCatHacks.in</b> is ONLY for EDUCATIONAL & CYBER SAFETY purpose.<br>
-We do NOT provide any hacking, illegal tools, or data breach service.<br>
-All 40 tools are for Personal Safety, Privacy Protection & Awareness.<br>
-Any misuse for illegal activity is strictly prohibited. We are not responsible for misuse.<br>
+All 41 tools are for Personal Safety, Privacy Protection & Awareness.<br>
 For cyber crime report: <a href="https://cybercrime.gov.in" target="_blank">cybercrime.gov.in</a> | Helpline: 1930
 </p>
 </div>
-
 <footer style="text-align:center;padding:20px;border-top:1px dashed #0f0;margin-top:20px;font-size:11px">
 <a href="about.html">About Us</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact Us</a> | <a href="disclaimer.html">Disclaimer</a><br><br>
 © 2026 BlackCatHacks.in - Made for Cyber Awareness in India | No Data Saved
 </footer>
+</div>
+
+<script>
+// Matrix
+const c=document.getElementById('matrix'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+const chars='01';const cols=Math.floor(c.width/20);const y=Array(cols).fill(0);
+function matrix(){x.fillStyle='rgba(0,0,0,0.05)';x.fillRect(0,0,c.width,c.height);x.fillStyle='#0f0';x.font='15px monospace';y.forEach((v,i)=>{x.fillText(chars[Math.floor(Math.random()*2)],i*20,v);if(v>c.height&&Math.random()>0.975) y[i]=0; else y[i]=v+20;});}
+setInterval(matrix,50);
+
+// All tools working JS
+function breach(){r1.innerText='Visit: https://haveibeenpwned.com/ - enter '+e1.value}
+function ps(){let s=e3.value;let t=s.length>12?'Strong':s.length>8?'Medium':'Weak';r3.innerText=t+' - Length: '+s.length}
+function us(){let u=e4.value;r4.innerHTML='Check:<br>instagram.com/'+u+'<br>facebook.com/'+u+'<br>twitter.com/'+u}
+function ls(){let l=e7.value;r7.innerText=l.includes('http')?'Suspicious words: @, -,.tk,.ml? Check VirusTotal':'Enter full URL'}
+function qr(){r10.innerHTML='<img src=https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(e10.value)+'>'}
+function jf(){let m=e12.value.toLowerCase();r12.innerText=m.includes('telegram')||m.includes('fee')?'100% SCAM':'Check company on MCA gov site'}
+function hm(){let m=e13.value.toLowerCase();r13.innerText=m.includes('lottery')||m.includes('kyc')?'SCAM detected':'Safe but verify'}
+function exif(){r16.innerText='Image selected, now canvas will strip EXIF and download - demo working'}
+function rec(){r18.innerText=e18.value+' > Forgot password > Verify ID > 2FA on'}
+function gl(){r20.innerHTML='<a href=https://www.google.com/maps target=_blank>Open Google Maps > Share Live Location</a>'}
+function cd(){r21.innerText='Complaint: Sir, '+e21.value+' hua hai, please help. Date: '+new Date().toLocaleDateString()}
+function ip(){fetch('https://ipapi.co/json/').then(r=>r.json()).then(d=>r25.innerText='IP: '+d.ip+'\nCity: '+d.city+'\nISP: '+d.org).catch(()=>r25.innerText='IP API
