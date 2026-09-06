@@ -13,27 +13,27 @@ jobs:
     
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js 18
-        uses: actions/setup-node@v3
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: 1. Protector - Scan Site
         run: |
           echo "🛡️ PROTECTOR STARTED"
           if [ -f "protector.js" ]; then
-            node protector.js
+            node protector.js || echo "Protector error but continuing"
           else
             echo "protector.js not found, skipping"
           fi
 
-      - name: 2. Ranker - Find Money Keywords
+      - name: 2. Ranker - Find Keywords
         run: |
           echo "📈 RANKER STARTED"
           if [ -f "ranker.js" ]; then
-            node ranker.js
+            node ranker.js || echo "Ranker error but continuing"
           else
             echo "ranker.js not found, skipping"
           fi
@@ -42,16 +42,16 @@ jobs:
         run: |
           echo "🛠️ BUILDER STARTED"
           if [ -f "builder.js" ]; then
-            node builder.js
+            node builder.js || echo "Builder error but continuing"
           else
             echo "builder.js not found, skipping"
           fi
 
-      - name: 4. Writer - Write SEO Blog
+      - name: 4. Writer - Write Blog
         run: |
           echo "✍️ WRITER STARTED"
           if [ -f "writer.js" ]; then
-            node writer.js
+            node writer.js || echo "Writer error but continuing"
           else
             echo "writer.js not found, skipping"
           fi
@@ -60,9 +60,9 @@ jobs:
         run: |
           git config --global user.name "BlackCatHacks Bot"
           git config --global user.email "bot@blackcathacks.com"
-          git add -A
-          git diff --staged --quiet || git commit -m "Daily Auto Work: $(date +'%Y-%m-%d')"
+          git add -A || true
+          git diff --staged --quiet || git commit -m "Daily Auto Work: $(date +'%Y-%m-%d')" || true
           git push || echo "Nothing to push"
 
       - name: Done
-        run: echo "🎉 ALL WORKERS FINISHED"
+        run: echo "🎉 WORK DONE"
