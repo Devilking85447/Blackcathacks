@@ -65,13 +65,6 @@ jobs:
             echo "index-updater.js not found, skipping"
           fi
 
-      - name: 6. Commit All New Work
+      - name: 6. Fix Sitemap - Auto Update Sitemap
         run: |
-          git config --global user.name "BlackCatHacks Bot"
-          git config --global user.email "bot@blackcathacks.com"
-          git add -A || true
-          git diff --staged --quiet || git commit -m "Daily Auto Work: $(date +'%Y-%m-%d')" || true
-          git push || echo "Nothing to push"
-
-      - name: Done
-        run: echo "🎉 WORK DONE - INDEX UPDATED"
+         
