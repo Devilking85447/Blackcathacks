@@ -56,7 +56,16 @@ jobs:
             echo "writer.js not found, skipping"
           fi
 
-      - name: 5. Commit All New Work
+      - name: 5. Update Index - Add New Tools to Homepage
+        run: |
+          echo "🔄 INDEX UPDATER STARTED"
+          if [ -f "index-updater.js" ]; then
+            node index-updater.js || echo "Updater error but continuing"
+          else
+            echo "index-updater.js not found, skipping"
+          fi
+
+      - name: 6. Commit All New Work
         run: |
           git config --global user.name "BlackCatHacks Bot"
           git config --global user.email "bot@blackcathacks.com"
@@ -65,4 +74,4 @@ jobs:
           git push || echo "Nothing to push"
 
       - name: Done
-        run: echo "🎉 WORK DONE"
+        run: echo "🎉 WORK DONE - INDEX UPDATED"
