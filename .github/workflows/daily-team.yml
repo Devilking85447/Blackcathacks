@@ -2,49 +2,67 @@ name: BlackCatHacks Daily Team
 
 on:
   schedule:
-    - cron: '0 3:30 * * *'  # 9:00 AM IST = 3:30 AM UTC
-  workflow_dispatch:  # Manual run button
+    - cron: '30 3 * * *'
+  workflow_dispatch:
 
 jobs:
   daily-work:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
-      - name: Checkout Code
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Setup Node.js 18
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Run Protector - Security Scan
+      - name: 1. Protector - Scan Site
         run: |
-          echo "🛡️ Running Protector..."
-          node protector.js || echo "Protector failed, continuing..."
-          
-      - name: Run Ranker - Find Keywords
-        run: |
-          echo "📈 Running Ranker..."
-          node ranker.js
+          echo "🛡️ PROTECTOR STARTED"
+          if [ -f "protector.js" ]; then
+            node protector.js
+          else
+            echo "protector.js not found, skipping"
+          fi
 
-      - name: Run Builder - Build New Tool
+      - name: 2. Ranker - Find Money Keywords
         run: |
-          echo "🛠️ Running Builder..."
-          node builder.js || echo "Builder skipped"
+          echo "📈 RANKER STARTED"
+          if [ -f "ranker.js" ]; then
+            node ranker.js
+          else
+            echo "ranker.js not found, skipping"
+          fi
 
-      - name: Run Writer - Write Blog
+      - name: 3. Builder - Build New Tool
         run: |
-          echo "✍️ Running Writer..."
-          node writer.js
+          echo "🛠️ BUILDER STARTED"
+          if [ -f "builder.js" ]; then
+            node builder.js
+          else
+            echo "builder.js not found, skipping"
+          fi
 
-      - name: Commit Reports & New Files
+      - name: 4. Writer - Write SEO Blog
+        run: |
+          echo "✍️ WRITER STARTED"
+          if [ -f "writer.js" ]; then
+            node writer.js
+          else
+            echo "writer.js not found, skipping"
+          fi
+
+      - name: 5. Commit All New Work
         run: |
           git config --global user.name "BlackCatHacks Bot"
           git config --global user.email "bot@blackcathacks.com"
-          git add .
-          git commit -m "Daily Team Work: $(date +'%Y-%m-%d') - Auto scan, keyword, tool, blog" || echo "No changes"
-          git push
+          git add -A
+          git diff --staged --quiet || git commit -m "Daily Auto Work: $(date +'%Y-%m-%d')"
+          git push || echo "Nothing to push"
 
-      - name: Work Done
-        run: echo "🎉 Daily Team Work Completed Boss!"
+      - name: Done
+        run: echo "🎉 ALL WORKERS FINISHED"
