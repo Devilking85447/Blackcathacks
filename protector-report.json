@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-06T05:24:00.730Z",
+  "totalTools": 2,
+  "working": 1,
+  "broken": [
+    {
+      "file": "emergency-live-location-sos.html",
+      "reason": "No HTML tag"
+    }
+  ],
+  "missingFiles": []
+}
