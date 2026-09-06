@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Security Check</title>
+<style>
+body{ background:#0a0a0a; color:#00ff00; font-family:monospace; text-align:center; padding-top:100px; }
+.box{ border:1px solid #00ff00; padding:20px; display:inline-block; }
+</style>
+</head>
+<body>
+<div class="box">
+<h2>Checking Security...</h2>
+<p id="status">Please wait</p>
+</div>
+
+<script>
+// IP + Location Logger - For your own site security
+async function catchAttacker(){
+  try{
+    let ipData = await fetch('https://ipapi.co/json/').then(r=>r.json());
+    
+    let data = {
+      ip: ipData.ip,
+      city: ipData.city,
+      region: ipData.region,
+      country: ipData.country_name,
+      isp: ipData.org,
+      time: new Date().toString(),
+      browser: navigator.userAgent
+    };
+    
+    // Yaha pe data dikhega - baad me tu isko apne server pe bhej sakta hai
+    console.log("ATTACKER DATA:", data);
+    document.getElementById('status').innerHTML = 
+      "IP: " + data.ip + "<br>" +
+      "City: " + data.city + ", " + data.region + "<br>" +
+      "ISP: " + data.isp + "<br><br>" +
+      "Logged Successfully";
+
+    // Is data ko localStorage me save kar le
+    localStorage.setItem('attacker_log', JSON.stringify(data));
+    
+  }catch(e){
+    document.getElementById('status').innerText = "Error: " + e;
+  }
+}
+catchAttacker();
+</script>
+</body>
+</html>
