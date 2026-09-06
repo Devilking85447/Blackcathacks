@@ -20,6 +20,9 @@ button{background:#000;border:1px solid #0f0;color:#0f0;padding:6px 10px;margin:
 button:hover{background:#0f0;color:#000}
 .res{background:#000;border:1px solid #222;padding:7px;min-height:16px;color:#0ff;font-size:11px;white-space:pre-wrap;word-break:break-all;margin-top:5px}
 a{color:#0f0}
+.new-badge{background:#00ff88;color:#000;font-size:9px;padding:2px 6px;border-radius:10px;margin-left:5px}
+.auto-item{display:block;background:#0a0a0a;border:1px solid #00ff88;padding:12px;margin:8px 0;border-radius:8px;color:#00ff88;text-decoration:none;font-size:12px}
+.auto-item:hover{background:#00ff88;color:#000}
 </style>
 </head>
 <body>
@@ -31,6 +34,13 @@ a{color:#0f0}
 <div class="box" onclick="window.location.href='link-joiner.html'" style="border:1px solid #00ff88; cursor:pointer; background: rgba(0,255,136,0.05);">
 <h3>🚀 1-Click Link Joiner (NEW)</h3>
 <p>WhatsApp / Telegram ka koi bhi link 1 click me join karo bina share kiye</p>
+</div>
+
+<div class="cat" style="border-color:#00ff88;background:rgba(0,255,136,0.07)">
+<h2>✨ NEW AUTO TOOLS - DAILY <span class="new-badge">LIVE</span></h2>
+<!-- AUTO-TOOLS -->
+<div style="text-align:center;color:#888;padding:10px;font-size:11px">🚀 Roz naya tool yaha auto-add hoga</div>
+<!-- END-AUTO-TOOLS -->
 </div>
 
 <div class="cat"><h2>🔵 PERSONAL SAFETY 1-6</h2>
@@ -83,13 +93,19 @@ a{color:#0f0}
 <div class="box"><h3>38. WiFi Security Tips</h3><button onclick="r38.innerText='WPA2/WPA3 use karo, admin/admin change karo, WPS OFF rakho'">Tips</button><div id="r38" class="res"></div></div>
 <div class="box"><h3>39. My Device Info Live (Working)</h3><button onclick="di()">Get My Device Info</button><div id="r39" class="res"></div></div>
 <div class="box"><h3>40. URL Expander (Working)</h3><input id="e40" placeholder="bit.ly/xyz"><button onclick="ue()">Expand Short URL</button><div id="r40" class="res"></div></div>
-
 <div class="box" style="border:1px solid #ffff00; background: rgba(255,255,0,0.05);">
 <h3>41. IP Logger Safety Awareness (NEW)</h3>
 <p style="font-size:10px;color:#fff;">Kaise bache IP tracking se?</p>
 <button onclick="r41.innerHTML='⚠️ IP Logger kaise kaam karta hai:<br>1. Attacker Grabify jaisa link banata hai<br>2. Click karne par IP+City+Device dikhta hai<br><br>✅ Bachav:<br>- Tool 40 se link expand karo<br>- VPN use karo<br>- Unknown link par click mat karo'">Learn Protection</button>
 <div id="r41" class="res"></div>
 </div>
+</div>
+
+<div class="cat" style="border-color:#0ff;background:rgba(0,255,255,0.07)">
+<h2>📚 LATEST CYBER BLOGS <span class="new-badge">DAILY</span></h2>
+<!-- AUTO-BLOGS -->
+<div style="text-align:center;color:#888;padding:10px;font-size:11px">📖 Roz naya blog yaha auto-add hoga</div>
+<!-- END-AUTO-BLOGS -->
 </div>
 
 <div style="border:1px solid #f00;background:#1a0000;padding:15px;border-radius:8px;margin:20px 0;text-align:center">
@@ -107,13 +123,10 @@ For cyber crime report: <a href="https://cybercrime.gov.in" target="_blank">cybe
 </div>
 
 <script>
-// Matrix
 const c=document.getElementById('matrix'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
 const chars='01';const cols=Math.floor(c.width/20);const y=Array(cols).fill(0);
 function matrix(){x.fillStyle='rgba(0,0,0,0.05)';x.fillRect(0,0,c.width,c.height);x.fillStyle='#0f0';x.font='15px monospace';y.forEach((v,i)=>{x.fillText(chars[Math.floor(Math.random()*2)],i*20,v);if(v>c.height&&Math.random()>0.975) y[i]=0; else y[i]=v+20;});}
 setInterval(matrix,50);
-
-// All tools working JS
 function breach(){r1.innerText='Visit: https://haveibeenpwned.com/ - enter '+e1.value}
 function ps(){let s=e3.value;let t=s.length>12?'Strong':s.length>8?'Medium':'Weak';r3.innerText=t+' - Length: '+s.length}
 function us(){let u=e4.value;r4.innerHTML='Check:<br>instagram.com/'+u+'<br>facebook.com/'+u+'<br>twitter.com/'+u}
@@ -125,4 +138,15 @@ function exif(){r16.innerText='Image selected, now canvas will strip EXIF and do
 function rec(){r18.innerText=e18.value+' > Forgot password > Verify ID > 2FA on'}
 function gl(){r20.innerHTML='<a href=https://www.google.com/maps target=_blank>Open Google Maps > Share Live Location</a>'}
 function cd(){r21.innerText='Complaint: Sir, '+e21.value+' hua hai, please help. Date: '+new Date().toLocaleDateString()}
-function ip(){fetch('https://ipapi.co/json/').then(r=>r.json()).then(d=>r25.innerText='IP: '+d.ip+'\nCity: '+d.city+'\nISP: '+d.org).catch(()=>r25.innerText='IP API
+function ip(){fetch('https://ipapi.co/json/').then(r=>r.json()).then(d=>r25.innerText='IP: '+d.ip+'\nCity: '+d.city+'\nISP: '+d.org).catch(()=>r25.innerText='IP API error, try again')}
+function wh(){r26.innerText='Whois for '+e26.value+' - Check who.is for full details'}
+function ss(){r27.innerText='Check '+e27.value+' on VirusTotal & Google Safe Browsing'}
+function ri(){let u=e29.value;r29.innerHTML='<a href=https://www.google.com/searchbyimage?image_url='+encodeURIComponent(u)+' target=_blank>Google Image Search</a>'}
+function yt(){let url=e31.value;let id=url.split('v=')[1]?.split('&')[0]||url.split('/').pop();r31.innerHTML='<a href=https://img.youtube.com/vi/'+id+'/maxresdefault.jpg target=_blank>HD Thumbnail - Click</a><br><img src=https://img.youtube.com/vi/'+id+'/mqdefault.jpg width=150>'}
+function cb(){let q=e32.value.toLowerCase();r32.innerText=q.includes('hack')?'Step1: Forgot password > Verify ID > 2FA ON > cybercrime.gov.in pe report':'Pucho: mera insta hack ho gaya kya karu?'}
+function pg(){let chars='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%';let p='';for(let i=0;i<16;i++) p+=chars[Math.floor(Math.random()*chars.length)];r36.innerText=p}
+function di(){r39.innerText='Device: '+navigator.userAgent+'\nScreen: '+screen.width+'x'+screen.height+'\nLang: '+navigator.language}
+function ue(){r40.innerText='Expanding '+e40.value+'... Check on unshorten.me for full URL'}
+</script>
+</body>
+</html>
