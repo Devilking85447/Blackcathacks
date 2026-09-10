@@ -1,11 +1,11 @@
 const fs = require('fs');
-console.log("🗺️ SITEMAP FIXING...");
+console.log(' SITEMAP FIXING...');
 
-const DOMAIN = "https://ilking85447.github.io";
+const DOMAIN = 'https://theredeye.in';
 let urls = [
   { loc: `${DOMAIN}/`, lastmod: new Date().toISOString().split('T')[0] },
-  { loc: `${DOMAIN}/about.html`, lastmod: "2026-05-10" },
-  { loc: `${DOMAIN}/contact.html`, lastmod: "2026-05-10" }
+  { loc: `${DOMAIN}/about.html`, lastmod: '2026-05-10' },
+  { loc: `${DOMAIN}/contact.html`, lastmod: '2026-05-10' },
 ];
 
 // Tools add karo
@@ -15,8 +15,9 @@ if(fs.existsSync('tools')){
     urls.push({ loc: `${DOMAIN}/tools/${f}`, lastmod: new Date().toISOString().split('T')[0] });
   });
 }
+
 // Root tools
-fs.readdirSync('./').filter(f=>f.endsWith('.html') && !['index.html','404.html'].includes(f) && !f.startsWith('google')).forEach(f=>{
+fs.readdirSync('.').filter(f=>f.endsWith('.html') && !['index.html','404.html'].includes(f) && !f.startsWith('google')).forEach(f=>{
   urls.push({ loc: `${DOMAIN}/${f}`, lastmod: new Date().toISOString().split('T')[0] });
 });
 
@@ -27,11 +28,6 @@ if(fs.existsSync('blogs')){
   });
 }
 
-let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+let xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 urls.forEach(u=>{
-  xml += `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n  </url>\n`;
-});
-xml += `</urlset>`;
-
-fs.writeFileSync('sitemap.xml', xml);
-console.log(`✅ SITEMAP FIXED: ${urls.length} urls`);
+  xml += `  <url>\n    <loc>${u.loc}</
