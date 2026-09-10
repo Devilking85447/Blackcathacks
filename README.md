@@ -1,21 +1,26 @@
-# BlackCatHacks - Learn Ethical Hacking The Right Way
+# 👁️ TheRedEye - See The Unseen. Hack The System.
 
-BlackCatHacks is an educational platform dedicated to spreading cyber security awareness in India. We teach ethical hacking, online safety, and bug bounty in simple Hindi + English.
+**TheRedEye** is an advanced educational platform for Cyber Security, Ethical Hacking & Bug Bounty - built for the next generation of Indian hackers. We teach in simple **Hindi + English**.
 
-🔗 **Live Website:** https://devilking5447.github.io/Blackcathacks/
+🔗 **Live Website:** https://devilking5447.github.io/theredeye/
+> Old link redirecting soon.
+
+![TheRedEye Banner](cyberpunk_red_eye.webp)
 
 ### 📚 What You'll Learn Here?
 
-*   What is Ethical Hacking & How to Start
-*   How to Secure Your Instagram, WiFi & Passwords
-*   Top Free Hacking Tools (Nmap, Burp Suite, Wireshark)
-*   How to Report Cyber Crime in India (1930 Helpline)
-*   Phishing Attacks, Malware, Dark Web Explained
-*   Bug Bounty Hunting Guide for Beginners
+*   **Ethical Hacking Roadmap:** How to Start from Zero in 2026
+*   **Digital Self-Defense:** How to Secure Instagram, WiFi & Passwords
+*   **Top Hacker Tools:** Nmap, Burp Suite, Wireshark Explained Simply
+*   **Cyber Crime Help India:** How to Report on 1930 Helpline
+*   **Real Threats Explained:** Phishing, Malware, Dark Web
+*   **Bug Bounty Guide:** Earn Your First Bounty as a Beginner
 
 ### 🎯 Our Mission
 
-To make India cyber-safe by providing 100% free, legal, and beginner-friendly cyber security education. All content is for **educational purpose only**.
+To make India cyber-safe by providing 100% free, legal, and powerful cyber security education. We don't just teach hacking, we teach you how to protect.
+
+> All content is for **educational purpose only**.
 
 ### 🛡️ Legal Pages
 
@@ -26,11 +31,11 @@ To make India cyber-safe by providing 100% free, legal, and beginner-friendly cy
 
 ### ⚠️ Disclaimer
 
-All tutorials and tools mentioned on this site should only be used on your own systems or with explicit permission. We do not promote illegal hacking. Stay ethical, stay safe.
+All tutorials and tools mentioned on this site should only be used on your own systems or with explicit permission. We do not promote illegal hacking. **Stay ethical, stay in the RedEye.**
 
 ### 🤝 Contact
 
-Have a question? Reach us via [Contact Page](contact.html)
+Have a doubt? Found a bug? Reach us via [Contact Page](contact.html)
 
 ---
-**Made with ❤️ in India | BlackCatHacks Team**
+**Made with ❤️ and 👁️ in India | TheRedEye Team**
