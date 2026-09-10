@@ -1,1 +1,2537 @@
-<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>TheRedEye - 41+ Free Cyber Safety Tools | Educational Only</title><meta name=description content="TheRedEye offers 41+ free cyber safety tools for educational purpose. See The Unseen."><link rel=icon type=image/x-icon href=favicon.ico><link rel=icon type=image/png sizes=512x512 href=favicon.png><link rel=apple-touch-icon href=favicon.png><style>html,body{margin:0;background:#000;color:#ff0f0f;font-family:monospace;overflow-x:hidden}canvas{position:fixed;top:0;left:0;z-index:-1}#wrap{max-width:700px;margin:auto;padding:12px;padding-bottom:100px;position:relative;z-index:1}h1{text-align:center;text-shadow:0 0 15px #ff0f0f;letter-spacing:2px}.lab{text-align:center;color:#ff3c3c;font-size:12px;margin-bottom:10px;border:1px dashed #ff0f0f;padding:5px}.cat{border:1px solid #ff0f0f;margin:18px 0;padding:10px;border-radius:12px;background:rgba(20,0,0,.93)}.cat h2{text-align:center;color:#fff;border-bottom:1px dashed #ff0f0f;font-size:14px;padding-bottom:6px}.box{border:1px solid #222;margin:9px 0;padding:9px;border-radius:8px;background:#0a0a0a}.box h3{margin:0 0 5px;font-size:12px;color:#ff6b6b}input,select{width:100%;background:#000;border:1px solid #ff0f0f;color:#ff6b6b;padding:7px;margin:3px 0;border-radius:4px;box-sizing:border-box}button{background:#000;border:1px solid #ff0f0f;color:#ff0f0f;padding:6px 10px;margin:3px;border-radius:5px;cursor:pointer;font-weight:700}button:hover{background:#ff0f0f;color:#000}.res{background:#000;border:1px solid #222;padding:7px;min-height:16px;color:#ff6b6b;font-size:11px;white-space:pre-wrap;word-break:break-all;margin-top:5px}a{color:#ff0f0f}.new-badge{background:#ff0f0f;color:#000;font-size:9px;padding:2px 6px;border-radius:10px;margin-left:5px}.auto-item{display:block;background:#0a0a0a;border:1px solid #ff0f0f;padding:12px;margin:8px 0;border-radius:8px;color:#ff6b6b;text-decoration:none;font-size:12px}.auto-item:hover{background:#ff0f0f;color:#000}</style></head><body><canvas id=matrix></canvas><div id=wrap><h1>👁️ THERED EYE.IN</h1><div class=lab>MATRIX LAB // 41+ SAFETY TOOLS // EDUCATIONAL ONLY // NO DATA SAVED</div><div class=box onclick="window.location.href='link-joiner.html'" style="border:1px solid #ff0f0f;cursor:pointer;background:rgba(255,15,15,0.05)"><h3>🚀 1-Click Link Joiner (NEW)</h3><p>WhatsApp / Telegram ka koi bhi link 1 click me join karo bina share kiye</p></div><div class=cat style="border-color:#ff0f0f;background:rgba(255,15,15,0.07)"><h2>✨ NEW AUTO TOOLS - DAILY <span class=new-badge>LIVE</span></h2><a href=tools/instagram-clone-check.html class=auto-item>🚀 Instagram Clone Check <span style=float:right>→</span></a><a href=tools/emergency-live-location-sos.html class=auto-item>🚀 Emergency Live Location Sos <span style=float:right>→</span></a><a href=attacker-catcher.html class=auto-item>🚀 Attacker Catcher <span style=float:right>→</span></a><a href=email-osint.html class=auto-item>🚀 Email Osint <span style=float:right>→</span></a><a href=how-to-check-upi-fraud.html class=auto-item>🚀 How To Check Upi Fraud <span style=float:right>→</span></a></div><div class=cat><h2>🔵 PERSONAL SAFETY 1-6</h2><div class=box><h3>1. Email Breach (Real API)</h3><input id=e1 placeholder=email@gmail.com><button onclick=breach()>Check</button><div id=r1 class=res></div></div><div class=box><h3>2. Phone Breach</h3><input id=e2 placeholder=9876543210><button onclick="r2.innerHTML='Check: <a href=https://haveibeenpwned.com/ target=_blank>HIBP</a> + Truecaller search '+e2.value">Check</button><div id=r2 class=res></div></div><div class=box><h3>3. Password Strength</h3><input id=e3 type=password placeholder=password><button onclick=ps()>Check</button><div id=r3 class=res></div></div><div class=box><h3>4. Username Live Check</h3><input id=e4 placeholder=username><button onclick=us()>Check</button><div id=r4 class=res></div></div><div class=box><h3>5. Aadhaar Safety</h3><button onclick="r5.innerText='UIDAI 1947 call, uidai.gov.in pe lock karo'">Tips</button><div id=r5 class=res></div></div><div class=box><h3>6. Dark Web Guide</h3><button onclick="r6.innerHTML='<a href=https://haveibeenpwned.com/ target=_blank>HaveIBeenPwned</a> official'">Open</button><div id=r6 class=res></div></div></div><div class=cat><h2>🟢 SCAM PROTECTION 7-13</h2><div class=box><h3>7. Link Scanner</h3><input id=e7 placeholder=https://...><button onclick=ls()>Scan</button><div id=r7 class=res></div></div><div class=box><h3>8. Number Spam</h3><input id=e8 placeholder=number><button onclick="r8.innerText='Truecaller pe '+e8.value+' search karo, spam>50=scam'">Check</button><div id=r8 class=res></div></div><div class=box><h3>9. UPI Checker</h3><input id=e9 placeholder=upi@okaxis><button onclick="r9.innerText='Verify only in BHIM: '+e9.value">Check</button><div id=r9 class=res></div></div><div class=box><h3>10. QR Generator (Working)</h3><input id=e10 placeholder=text/link><button onclick=qr()>Generate QR</button><div id=r10 class=res></div></div><div class=box><h3>11. APK Safety</h3><button onclick="window.open('https://www.virustotal.com/')">Scan APK on VirusTotal</button><div id=r11 class=res>Click to open VirusTotal</div></div><div class=box><h3>12. Job Fraud</h3><input id=e12 placeholder="paste job msg"><button onclick=jf()>Detect</button><div id=r12 class=res></div></div><div class=box><h3>13. Hack Message</h3><input id=e13 placeholder="paste whatsapp msg"><button onclick=hm()>Detect</button><div id=r13 class=res></div></div></div><div class=cat><h2>🟡 SOCIAL SAFETY 14-19</h2><div class=box><h3>14. Fake Profile</h3><button onclick="r14.innerText='0 posts, new account, 10k following = fake'">Tips</button><div id=r14 class=res></div></div><div class=box><h3>15. Privacy Score</h3><button onclick="r15.innerText='Score: '+(55+Math.floor(Math.random()*30))+'/100'">Calc</button><div id=r15 class=res></div></div><div class=box><h3>16. Photo EXIF Remover (Working)</h3><input type=file id=f16 accept=image/*><button onclick=exif()>Remove & Download Clean</button><div id=r16 class=res></div></div><div class=box><h3>17. Stalker Tips</h3><button onclick="r17.innerText='Private account + close friends + 2FA'">Tips</button><div id=r17 class=res></div></div><div class=box><h3>18. Recovery Guide</h3><select id=e18><option>Instagram</option><option>Gmail</option><option>Facebook</option></select><button onclick=rec()>Steps</button><div id=r18 class=res></div></div><div class=box><h3>19. 2FA Helper</h3><button onclick="r19.innerText='Google Authenticator install > Security > 2FA > App'">Guide</button><div id=r19 class=res></div></div></div><div class=cat><h2>🔴 EMERGENCY & ADVANCED 20-41</h2><div class=box><h3>20. Live Location (Working)</h3><button onclick=gl()>Get Link</button><div id=r20 class=res></div></div><div class=box><h3>21. Complaint Draft (Working)</h3><input id=e21 placeholder="kya hua?"><button onclick=cd()>Draft</button><div id=r21 class=res></div></div><div class=box><h3>22. Cyber Police Portal</h3><button onclick="window.open('https://cybercrime.gov.in/')">Open gov portal</button><div id=r22 class=res>Gov portal - 1930 helpline</div></div><div class=box><h3>23. Women Safety SOS</h3><button onclick="r23.innerText='112 India App install karo, power button 8 baar press = SOS, live location family ko share karo'">Get SOS Tips</button><div id=r23 class=res></div></div><div class=box><h3>24. Child Safety Guide</h3><button onclick="r24.innerText='YouTube Kids + Google Family Link install + SafeSearch ON rakho'">Guide</button><div id=r24 class=res></div></div><div class=box><h3>25. My IP Live (Real API)</h3><button onclick=ip()>Get My IP & Location</button><div id=r25 class=res></div></div><div class=box><h3>26. Domain Whois Lookup</h3><input id=e26 placeholder=google.com><button onclick=wh()>Whois Lookup</button><div id=r26 class=res></div></div><div class=box><h3>27. Website Safety Check</h3><input id=e27 placeholder=https://example.com><button onclick=ss()>Check Safety</button><div id=r27 class=res></div></div><div class=box><h3>28. Email Header Analyzer</h3><button onclick="r28.innerText='Gmail > Open email > 3 dots > Show Original > SPF/DKIM PASS = real, FAIL = spoof'">Guide</button><div id=r28 class=res></div></div><div class=box><h3>29. Reverse Image Search Links</h3><input id=e29 placeholder="Paste image URL"><button onclick=ri()>Create Search Links</button><div id=r29 class=res></div></div><div class=box><h3>30. AI Image Detector</h3><button onclick="window.open('https://www.aiornot.com/')">Check on AIorNot</button><div id=r30 class=res>AIorNot pe upload karo</div></div><div class=box><h3>31. YouTube Thumbnail Extractor (Working)</h3><input id=e31 placeholder="Paste YouTube URL"><button onclick=yt()>Get Thumbnail HD</button><div id=r31 class=res></div></div><div class=box><h3>32. AI Help Chatbot Hindi</h3><input id=e32 placeholder="mera insta hack..."><button onclick=cb()>Ask AI</button><div id=r32 class=res></div></div><div class=box><h3>33. Security Score Calculator</h3><button onclick="r33.innerText='Your Score: '+(60+Math.floor(Math.random()*30))+'/100 - 2FA on karo to 95+ hoga'">Calculate</button><div id=r33 class=res></div></div><div class=box><h3>34. Cyber Law Guide</h3><button onclick="r34.innerText='IT Act 66C: ID theft = 3 years jail, 66D: Fake profile = 3 years. Report at cybercrime.gov.in'">Show Law</button><div id=r34 class=res></div></div><div class=box><h3>35. Daily Safe Tip</h3><button onclick="r35.innerText='Tip: Har password alag rakho, 2FA on, public WiFi pe banking mat karo'">Get Tip</button><div id=r35 class=res></div></div><div class=box><h3>36. Strong Password Generator (Working)</h3><button onclick=pg()>Generate 16 Char Password</button><div id=r36 class=res></div></div><div class=box><h3>37. Port Info</h3><input id=e37 placeholder=80,443><button onclick="r37.innerText='Port '+e37.value+' = '+(e37.value==80?'HTTP':e37.value==443?'HTTPS':'Check Google')">Check</button><div id=r37 class=res></div></div><div class=box><h3>38. WiFi Security Tips</h3><button onclick="r38.innerText='WPA2/WPA3 use karo, admin/admin change karo, WPS OFF rakho'">Tips</button><div id=r38 class=res></div></div><div class=box><h3>39. My Device Info Live (Working)</h3><button onclick=di()>Get My Device Info</button><div id=r39 class=res></div></div><div class=box><h3>40. URL Expander (Working)</h3><input id=e40 placeholder=bit.ly/xyz><button onclick=ue()>Expand Short URL</button><div id=r40 class=res></div></div><div class=box style="border:1px solid #ffff00;background:rgba(255,255,0,0.05)"><h3>41. IP Logger Safety Awareness (NEW)</h3><p style=font-size:10px;color:#fff>Kaise bache IP tracking se?</p><button onclick="r41.innerHTML='⚠️ IP Logger kaise kaam karta hai:<br>1. Attacker Grabify jaisa link banata hai<br>2. Click karne par IP+City+Device dikhta hai<br><br>✅ Bachav:<br>- Tool 40 se link expand karo<br>- VPN use karo<br>- Unknown link par click mat karo'">Learn Protection</button><div id=r41 class=res></div></div></div><div style="border:1px solid #f00;background:#1a0000;padding:15px;border-radius:8px;margin:20px 0;text-align:center"><h3 style=color:#f00;margin:0>⚠️ LEGAL DISCLAIMER</h3><p style=color:#fff;font-size:11px;line-height:16px><b>TheRedEye.in</b> is ONLY for EDUCATIONAL & CYBER SAFETY purpose.<br>All 41 tools are for Personal Safety, Privacy Protection & Awareness.<br>For cyber crime report: <a href=https://cybercrime.gov.in target=_blank>cybercrime.gov.in</a> | Helpline: 1930</p></div><footer style=text-align:center;padding:20px;border-top:1px dashed #ff0f0f;margin-top:20px;font-size:11px><a href=about.html>About Us</a> | <a href=privacy.html>Privacy Policy</a> | <a href=contact.html>Contact Us</a> | <a href=disclaimer.html>Disclaimer</a><br><br>© 2026 TheRedEye.in - Made for Cyber Awareness in India | No Data Saved</footer></div><script>const c=document.getElementById('matrix'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const chars='01';const cols=Math.floor(c.width/20);const y=Array(cols).fill(0);function matrix(){x.fillStyle='rgba(0,0,0,0.05)';x.fillRect(0,0,c.width,c.height);x.fillStyle='#ff0f0f';x.font='15px monospace';y.forEach((v,i)=>{x.fillText(chars[Math.floor(Math.random()*2)],i*20,v);if(v>c.height&&Math.random()>0.975) y[i]=0; else y[i]=v+20;});}setInterval(matrix,50);function breach(){r1.innerText='Visit: https://haveibeenpwned.com/ - enter '+e1.value}function ps(){let s=e3.value;let t=s.length>12?'Strong':s.length>8?'Medium':'Weak';r3.innerText=t+' - Length: '+s.length}function us(){let u=e4.value;r4.innerHTML='Check:<br>instagram.com/'+u+'<br>facebook.com/'+u+'<br>twitter.com/'+u}function ls(){let l=e7.value;r7.innerText=l.includes('http')?'Suspicious words: @, -,.tk,.ml? Check VirusTotal':'Enter full URL'}function qr(){r10.innerHTML='<img src=https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(e10.value)+'>'}function jf(){let m=e12.value.toLowerCase();r12.innerText=m.includes('telegram')||m.includes('fee')?'100% SCAM':'Check company on MCA + reviews'}function hm(){let m=e13.value.toLowerCase();r13.innerText=m.includes('lottery')||m.includes('kyc')||m.includes('blocked')?'SCAM detected':'Looks ok but verify sender'}function exif(){if(!f16.files[0]){r16.innerText='Select image';return;} r16.innerText='EXIF removed! Clean image ready to download (Canvas stripped metadata)';}function rec(){let p=e18.value;r18.innerText=p+' Recovery: Forgot password > ID proof > cybercrime.gov.in if hacked'}function gl(){r20.innerHTML='Share: https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('my location')+' (Open maps > share)'}function cd(){r21.innerText='To: cybercrime.gov.in\nSubject: Fraud\nBody: On '+new Date().toLocaleDateString()+' '+e21.value}function ip(){fetch('https://ipapi.co/json/').then(r=>r.json()).then(d=>{r25.innerText='IP: '+d.ip+' | '+d.city+','+d.country_name}).catch(()=>{r25.innerText='IP fetch blocked, use https://whatismyip.com'});}function wh(){r26.innerHTML='<a target=_blank href=https://who.is/whois/'+e26.value+'>Check whois for '+e26.value+'</a>'}function ss(){let u=e27.value;r27.innerHTML='Check: <a target=_blank href=https://www.virustotal.com/gui/search/'+encodeURIComponent(u)+'>VirusTotal scan for '+u+'</a>'}function ri(){let u=e29.value;r29.innerHTML='<a target=_blank href=https://www.google.com/searchbyimage?image_url='+encodeURIComponent(u)+'>Google</a> | <a target=_blank href=https://yandex.com/images/search?rpt=imageview&url='+encodeURIComponent(u)+'>Yandex</a>'}function yt(){let url=e31.value;let id=url.match(/(?:v=|\.be\/|embed\/)([^&?]+)/);let vid=id?id[1]:url;r31.innerHTML='<img src=https://img.youtube.com/vi/'+vid+'/maxresdefault.jpg width=200><br><a target=_blank href=https://img.youtube.com/vi/'+vid+'/maxresdefault.jpg>Open HD</a>'}function cb(){let q=e32.value.toLowerCase();let a=q.includes('hack')?'Insta > Forgot > 2FA ON karo, cybercrime.gov.in pe report karo':q.includes('upi')?'UPI fraud: 1930 pe call karo, BHIM me verify karo':'Safety tip: Strong password + 2FA ON rakho';r32.innerText=a}function pg(){let chars='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#';let p='';for(let i=0;i<16;i++)p+=chars[Math.floor(Math.random()*chars.length)];r36.innerText=p+' (copied idea)'}function di(){r39.innerText='UA: '+navigator.userAgent+'\nPlatform: '+navigator.platform+'\nLang: '+navigator.language}function ue(){let u=e40.value;r40.innerHTML='Checking... <a target=_blank href=https://unshorten.me/s/'+encodeURIComponent(u)+'>Expand via unshorten.me</a>'}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TheRedEye - 41+ Free Cyber Safety Tools</title>
+
+  <meta
+    name="description"
+    content="TheRedEye offers free cyber safety, privacy and awareness tools for educational purposes."
+  >
+
+  <meta name="theme-color" content="#000000">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #ff0f0f;
+      font-family: monospace;
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    #wrap {
+      width: 100%;
+      max-width: 700px;
+      margin: auto;
+      padding: 12px;
+      padding-bottom: 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 10px 0;
+      font-size: clamp(24px, 7vw, 38px);
+      text-shadow: 0 0 15px #ff0f0f;
+      letter-spacing: 2px;
+    }
+
+    .lab {
+      text-align: center;
+      color: #ff3c3c;
+      font-size: 12px;
+      margin-bottom: 12px;
+      border: 1px dashed #ff0f0f;
+      padding: 7px;
+      border-radius: 5px;
+    }
+
+    .cat {
+      border: 1px solid #ff0f0f;
+      margin: 18px 0;
+      padding: 10px;
+      border-radius: 12px;
+      background: rgba(20, 0, 0, 0.93);
+    }
+
+    .cat h2 {
+      text-align: center;
+      color: #fff;
+      border-bottom: 1px dashed #ff0f0f;
+      font-size: 14px;
+      padding-bottom: 8px;
+      margin-top: 3px;
+    }
+
+    .box {
+      border: 1px solid #222;
+      margin: 9px 0;
+      padding: 10px;
+      border-radius: 8px;
+      background: #0a0a0a;
+    }
+
+    .box h3 {
+      margin: 0 0 7px;
+      font-size: 12px;
+      color: #ff6b6b;
+    }
+
+    .box p {
+      font-size: 11px;
+      line-height: 17px;
+      color: #ddd;
+    }
+
+    input,
+    select {
+      width: 100%;
+      background: #000;
+      border: 1px solid #ff0f0f;
+      color: #ff6b6b;
+      padding: 8px;
+      margin: 3px 0;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      box-shadow: 0 0 8px rgba(255, 15, 15, 0.35);
+    }
+
+    button {
+      background: #000;
+      border: 1px solid #ff0f0f;
+      color: #ff0f0f;
+      padding: 7px 11px;
+      margin: 4px 2px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 700;
+      font-family: monospace;
+    }
+
+    button:hover {
+      background: #ff0f0f;
+      color: #000;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .res {
+      background: #000;
+      border: 1px solid #222;
+      padding: 8px;
+      min-height: 18px;
+      color: #ff6b6b;
+      font-size: 11px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin-top: 6px;
+      border-radius: 4px;
+    }
+
+    a {
+      color: #ff0f0f;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    .new-badge {
+      background: #ff0f0f;
+      color: #000;
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      margin-left: 5px;
+    }
+
+    .auto-item {
+      display: block;
+      background: #0a0a0a;
+      border: 1px solid #ff0f0f;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      color: #ff6b6b;
+      text-decoration: none;
+      font-size: 12px;
+      transition: 0.2s;
+    }
+
+    .auto-item:hover {
+      background: #ff0f0f;
+      color: #000;
+    }
+
+    .danger {
+      border: 1px solid #f00;
+      background: #1a0000;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .danger h3 {
+      color: #f00;
+      margin: 0 0 8px;
+    }
+
+    .danger p {
+      color: #fff;
+      font-size: 11px;
+      line-height: 17px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px dashed #ff0f0f;
+      margin-top: 20px;
+      font-size: 11px;
+      line-height: 20px;
+    }
+
+    .tool-note {
+      color: #999;
+      font-size: 9px;
+      margin-top: 4px;
+    }
+
+    .qr-image {
+      display: block;
+      max-width: 180px;
+      width: 100%;
+      margin: 8px auto;
+      border: 2px solid #ff0f0f;
+      padding: 4px;
+      background: white;
+    }
+
+    @media (max-width: 480px) {
+      #wrap {
+        padding: 8px;
+      }
+
+      .cat {
+        padding: 8px;
+      }
+
+      button {
+        width: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div id="wrap">
+
+  <h1>👁️ THERED EYE.IN</h1>
+
+  <div class="lab">
+    MATRIX LAB // 41 CYBER SAFETY TOOLS //
+    EDUCATIONAL ONLY // NO DATA SAVED
+  </div>
+
+  <!-- QUICK TOOL -->
+  <div
+    class="box"
+    onclick="window.location.href='link-joiner.html'"
+    style="
+      border:1px solid #ff0f0f;
+      cursor:pointer;
+      background:rgba(255,15,15,0.05);
+    "
+  >
+    <h3>🚀 1-Click Link Joiner</h3>
+
+    <p>
+      WhatsApp / Telegram links ko quickly open karne ke liye.
+      Sirf trusted links ka use karein.
+    </p>
+  </div>
+
+  <!-- AUTO TOOLS -->
+  <div
+    class="cat"
+    style="
+      border-color:#ff0f0f;
+      background:rgba(255,15,15,0.07);
+    "
+  >
+
+    <h2>
+      ✨ NEW AUTO TOOLS
+      <span class="new-badge">LIVE</span>
+    </h2>
+
+    <a href="tools/instagram-clone-check.html" class="auto-item">
+      🚀 Instagram Clone Check
+      <span style="float:right">→</span>
+    </a>
+
+    <a href="tools/emergency-live-location-sos.html" class="auto-item">
+      🚀 Emergency Live Location SOS
+      <span style="float:right">→</span>
+    </a>
+
+    <a href="attacker-catcher.html" class="auto-item">
+      🚀 Attacker Catcher
+      <span style="float:right">→</span>
+    </a>
+
+    <a href="email-osint.html" class="auto-item">
+      🚀 Email OSINT
+      <span style="float:right">→</span>
+    </a>
+
+    <a href="how-to-check-upi-fraud.html" class="auto-item">
+      🚀 How To Check UPI Fraud
+      <span style="float:right">→</span>
+    </a>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- PERSONAL SAFETY -->
+  <!-- ================================================= -->
+
+  <div class="cat">
+
+    <h2>🔵 PERSONAL SAFETY 1-6</h2>
+
+    <!-- 1 -->
+    <div class="box">
+      <h3>1. Email Breach Check</h3>
+
+      <input
+        id="e1"
+        type="email"
+        placeholder="email@gmail.com"
+      >
+
+      <button onclick="breach()">Check</button>
+
+      <div id="r1" class="res"></div>
+
+      <div class="tool-note">
+        Uses the official HIBP website for checking.
+      </div>
+    </div>
+
+
+    <!-- 2 -->
+    <div class="box">
+      <h3>2. Phone Breach / Spam Check</h3>
+
+      <input
+        id="e2"
+        type="tel"
+        placeholder="9876543210"
+      >
+
+      <button onclick="phoneCheck()">Check</button>
+
+      <div id="r2" class="res"></div>
+    </div>
+
+
+    <!-- 3 -->
+    <div class="box">
+      <h3>3. Password Strength</h3>
+
+      <input
+        id="e3"
+        type="password"
+        placeholder="Enter password"
+      >
+
+      <button onclick="ps()">Check</button>
+
+      <div id="r3" class="res"></div>
+    </div>
+
+
+    <!-- 4 -->
+    <div class="box">
+      <h3>4. Username Live Check</h3>
+
+      <input
+        id="e4"
+        placeholder="username"
+      >
+
+      <button onclick="us()">Check</button>
+
+      <div id="r4" class="res"></div>
+    </div>
+
+
+    <!-- 5 -->
+    <div class="box">
+      <h3>5. Aadhaar Safety</h3>
+
+      <button onclick="aadhaarTips()">Tips</button>
+
+      <div id="r5" class="res"></div>
+    </div>
+
+
+    <!-- 6 -->
+    <div class="box">
+      <h3>6. Dark Web Safety Guide</h3>
+
+      <button onclick="darkWeb()">Open Guide</button>
+
+      <div id="r6" class="res"></div>
+    </div>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- SCAM PROTECTION -->
+  <!-- ================================================= -->
+
+  <div class="cat">
+
+    <h2>🟢 SCAM PROTECTION 7-13</h2>
+
+
+    <!-- 7 -->
+    <div class="box">
+
+      <h3>7. Link Scanner</h3>
+
+      <input
+        id="e7"
+        placeholder="https://example.com"
+      >
+
+      <button onclick="ls()">Scan</button>
+
+      <div id="r7" class="res"></div>
+
+    </div>
+
+
+    <!-- 8 -->
+    <div class="box">
+
+      <h3>8. Number Spam Check</h3>
+
+      <input
+        id="e8"
+        type="tel"
+        placeholder="Phone number"
+      >
+
+      <button onclick="numberSpam()">Check</button>
+
+      <div id="r8" class="res"></div>
+
+    </div>
+
+
+    <!-- 9 -->
+    <div class="box">
+
+      <h3>9. UPI Safety Checker</h3>
+
+      <input
+        id="e9"
+        placeholder="name@upi"
+      >
+
+      <button onclick="upiCheck()">Check</button>
+
+      <div id="r9" class="res"></div>
+
+    </div>
+
+
+    <!-- 10 -->
+    <div class="box">
+
+      <h3>10. QR Generator</h3>
+
+      <input
+        id="e10"
+        placeholder="Text / URL"
+      >
+
+      <button onclick="qr()">Generate QR</button>
+
+      <div id="r10" class="res"></div>
+
+    </div>
+
+
+    <!-- 11 -->
+    <div class="box">
+
+      <h3>11. APK Safety</h3>
+
+      <button
+        onclick="openSafe('https://www.virustotal.com/')"
+      >
+        Scan APK on VirusTotal
+      </button>
+
+      <div id="r11" class="res">
+        Upload the APK to VirusTotal and review the results.
+      </div>
+
+    </div>
+
+
+    <!-- 12 -->
+    <div class="box">
+
+      <h3>12. Job Fraud Detector</h3>
+
+      <input
+        id="e12"
+        placeholder="Paste job message"
+      >
+
+      <button onclick="jf()">Detect</button>
+
+      <div id="r12" class="res"></div>
+
+    </div>
+
+
+    <!-- 13 -->
+    <div class="box">
+
+      <h3>13. Suspicious Message Detector</h3>
+
+      <input
+        id="e13"
+        placeholder="Paste WhatsApp / SMS"
+      >
+
+      <button onclick="hm()">Detect</button>
+
+      <div id="r13" class="res"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- SOCIAL SAFETY -->
+  <!-- ================================================= -->
+
+  <div class="cat">
+
+    <h2>🟡 SOCIAL SAFETY 14-19</h2>
+
+
+    <!-- 14 -->
+    <div class="box">
+
+      <h3>14. Fake Profile Awareness</h3>
+
+      <button onclick="fakeProfile()">Tips</button>
+
+      <div id="r14" class="res"></div>
+
+    </div>
+
+
+    <!-- 15 -->
+    <div class="box">
+
+      <h3>15. Privacy Score</h3>
+
+      <button onclick="privacyScore()">Calculate</button>
+
+      <div id="r15" class="res"></div>
+
+    </div>
+
+
+    <!-- 16 -->
+    <div class="box">
+
+      <h3>16. Photo EXIF Remover</h3>
+
+      <input
+        type="file"
+        id="f16"
+        accept="image/*"
+      >
+
+      <button onclick="exif()">Clean & Download</button>
+
+      <div id="r16" class="res"></div>
+
+    </div>
+
+
+    <!-- 17 -->
+    <div class="box">
+
+      <h3>17. Stalker Safety Tips</h3>
+
+      <button onclick="stalkerTips()">Tips</button>
+
+      <div id="r17" class="res"></div>
+
+    </div>
+
+
+    <!-- 18 -->
+    <div class="box">
+
+      <h3>18. Account Recovery Guide</h3>
+
+      <select id="e18">
+        <option>Instagram</option>
+        <option>Gmail</option>
+        <option>Facebook</option>
+      </select>
+
+      <button onclick="rec()">Steps</button>
+
+      <div id="r18" class="res"></div>
+
+    </div>
+
+
+    <!-- 19 -->
+    <div class="box">
+
+      <h3>19. 2FA Helper</h3>
+
+      <button onclick="twoFA()">Guide</button>
+
+      <div id="r19" class="res"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- EMERGENCY & ADVANCED -->
+  <!-- ================================================= -->
+
+  <div class="cat">
+
+    <h2>🔴 EMERGENCY & ADVANCED 20-41</h2>
+
+
+    <!-- 20 -->
+    <div class="box">
+
+      <h3>20. My Location Link</h3>
+
+      <button onclick="gl()">Get My Location</button>
+
+      <div id="r20" class="res"></div>
+
+    </div>
+
+
+    <!-- 21 -->
+    <div class="box">
+
+      <h3>21. Cyber Complaint Draft</h3>
+
+      <input
+        id="e21"
+        placeholder="What happened?"
+      >
+
+      <button onclick="cd()">Create Draft</button>
+
+      <div id="r21" class="res"></div>
+
+    </div>
+
+
+    <!-- 22 -->
+    <div class="box">
+
+      <h3>22. Cyber Police Portal</h3>
+
+      <button
+        onclick="openSafe('https://cybercrime.gov.in/')"
+      >
+        Open Government Portal
+      </button>
+
+      <div id="r22" class="res">
+        National Cyber Crime Reporting Portal — Helpline 1930.
+      </div>
+
+    </div>
+
+
+    <!-- 23 -->
+    <div class="box">
+
+      <h3>23. Women Safety SOS</h3>
+
+      <button onclick="womenSOS()">Get SOS Tips</button>
+
+      <div id="r23" class="res"></div>
+
+    </div>
+
+
+    <!-- 24 -->
+    <div class="box">
+
+      <h3>24. Child Safety Guide</h3>
+
+      <button onclick="childSafety()">Guide</button>
+
+      <div id="r24" class="res"></div>
+
+    </div>
+
+
+    <!-- 25 -->
+    <div class="box">
+
+      <h3>25. My IP Information</h3>
+
+      <button onclick="ip()">Get IP Information</button>
+
+      <div id="r25" class="res"></div>
+
+    </div>
+
+
+    <!-- 26 -->
+    <div class="box">
+
+      <h3>26. Domain WHOIS Lookup</h3>
+
+      <input
+        id="e26"
+        placeholder="example.com"
+      >
+
+      <button onclick="wh()">WHOIS Lookup</button>
+
+      <div id="r26" class="res"></div>
+
+    </div>
+
+
+    <!-- 27 -->
+    <div class="box">
+
+      <h3>27. Website Safety Check</h3>
+
+      <input
+        id="e27"
+        placeholder="https://example.com"
+      >
+
+      <button onclick="ss()">Check Safety</button>
+
+      <div id="r27" class="res"></div>
+
+    </div>
+
+
+    <!-- 28 -->
+    <div class="box">
+
+      <h3>28. Email Header Analyzer Guide</h3>
+
+      <button onclick="headerGuide()">Guide</button>
+
+      <div id="r28" class="res"></div>
+
+    </div>
+
+
+    <!-- 29 -->
+    <div class="box">
+
+      <h3>29. Reverse Image Search Links</h3>
+
+      <input
+        id="e29"
+        placeholder="Paste image URL"
+      >
+
+      <button onclick="ri()">Create Search Links</button>
+
+      <div id="r29" class="res"></div>
+
+    </div>
+
+
+    <!-- 30 -->
+    <div class="box">
+
+      <h3>30. AI Image Detector</h3>
+
+      <button
+        onclick="openSafe('https://www.aiornot.com/')"
+      >
+        Open AI Image Detector
+      </button>
+
+      <div id="r30" class="res">
+        Upload your image on the external service and review its result.
+      </div>
+
+    </div>
+
+
+    <!-- 31 -->
+    <div class="box">
+
+      <h3>31. YouTube Thumbnail Extractor</h3>
+
+      <input
+        id="e31"
+        placeholder="Paste YouTube URL"
+      >
+
+      <button onclick="yt()">Get Thumbnail</button>
+
+      <div id="r31" class="res"></div>
+
+    </div>
+
+
+    <!-- 32 -->
+    <div class="box">
+
+      <h3>32. Cyber Safety Help Chatbot</h3>
+
+      <input
+        id="e32"
+        placeholder="Example: mera Instagram hack ho gaya"
+      >
+
+      <button onclick="cb()">Ask</button>
+
+      <div id="r32" class="res"></div>
+
+    </div>
+
+
+    <!-- 33 -->
+    <div class="box">
+
+      <h3>33. Security Score Calculator</h3>
+
+      <button onclick="securityScore()">Calculate</button>
+
+      <div id="r33" class="res"></div>
+
+    </div>
+
+
+    <!-- 34 -->
+    <div class="box">
+
+      <h3>34. Cyber Law Guide</h3>
+
+      <button onclick="lawGuide()">Show Guide</button>
+
+      <div id="r34" class="res"></div>
+
+    </div>
+
+
+    <!-- 35 -->
+    <div class="box">
+
+      <h3>35. Daily Safe Tip</h3>
+
+      <button onclick="dailyTip()">Get Tip</button>
+
+      <div id="r35" class="res"></div>
+
+    </div>
+
+
+    <!-- 36 -->
+    <div class="box">
+
+      <h3>36. Strong Password Generator</h3>
+
+      <button onclick="pg()">Generate 16 Character Password</button>
+
+      <div id="r36" class="res"></div>
+
+    </div>
+
+
+    <!-- 37 -->
+    <div class="box">
+
+      <h3>37. Port Information</h3>
+
+      <input
+        id="e37"
+        placeholder="80, 443"
+      >
+
+      <button onclick="portInfo()">Check</button>
+
+      <div id="r37" class="res"></div>
+
+    </div>
+
+
+    <!-- 38 -->
+    <div class="box">
+
+      <h3>38. Wi-Fi Security Tips</h3>
+
+      <button onclick="wifiTips()">Tips</button>
+
+      <div id="r38" class="res"></div>
+
+    </div>
+
+
+    <!-- 39 -->
+    <div class="box">
+
+      <h3>39. My Device Information</h3>
+
+      <button onclick="di()">Get Device Info</button>
+
+      <div id="r39" class="res"></div>
+
+    </div>
+
+
+    <!-- 40 -->
+    <div class="box">
+
+      <h3>40. URL Expander</h3>
+
+      <input
+        id="e40"
+        placeholder="https://bit.ly/example"
+      >
+
+      <button onclick="ue()">Expand URL</button>
+
+      <div id="r40" class="res"></div>
+
+    </div>
+
+
+    <!-- 41 -->
+    <div
+      class="box"
+      style="
+        border:1px solid #ffff00;
+        background:rgba(255,255,0,0.05);
+      "
+    >
+
+      <h3>41. IP Logger Safety Awareness</h3>
+
+      <p style="font-size:10px;color:#fff">
+        IP tracking se kaise bache?
+      </p>
+
+      <button onclick="ipLoggerSafety()">
+        Learn Protection
+      </button>
+
+      <div id="r41" class="res"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- DISCLAIMER -->
+  <!-- ================================================= -->
+
+  <div class="danger">
+
+    <h3>⚠️ LEGAL DISCLAIMER</h3>
+
+    <p>
+      <b>TheRedEye.in</b> is intended ONLY for educational,
+      privacy and cyber-safety awareness purposes.
+      <br><br>
+
+      These tools should only be used with information,
+      devices and accounts that you are authorized to check.
+      <br><br>
+
+      For cyber-crime reporting in India:
+      <br>
+
+      <a
+        href="https://cybercrime.gov.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        cybercrime.gov.in
+      </a>
+
+      | Helpline: 1930
+    </p>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- FOOTER -->
+  <!-- ================================================= -->
+
+  <footer>
+
+    <a href="about.html">About Us</a>
+    |
+    <a href="privacy.html">Privacy Policy</a>
+    |
+    <a href="contact.html">Contact Us</a>
+    |
+    <a href="disclaimer.html">Disclaimer</a>
+
+    <br><br>
+
+    © 2026 TheRedEye.in
+
+    <br>
+
+    Made for Cyber Awareness in India
+
+    <br>
+
+    No Data Saved
+
+  </footer>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   MATRIX BACKGROUND
+===================================================== */
+
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+let matrixWidth = 0;
+let matrixHeight = 0;
+let drops = [];
+
+function resizeMatrix() {
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  matrixWidth = Math.floor(canvas.width / 20);
+
+  drops = Array(matrixWidth).fill(0);
+
+}
+
+resizeMatrix();
+
+window.addEventListener("resize", resizeMatrix);
+
+const matrixChars = "01";
+
+function drawMatrix() {
+
+  ctx.fillStyle = "rgba(0,0,0,0.06)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#ff0f0f";
+  ctx.font = "15px monospace";
+
+  drops.forEach((value, index) => {
+
+    const char =
+      matrixChars[
+        Math.floor(Math.random() * matrixChars.length)
+      ];
+
+    ctx.fillText(char, index * 20, value);
+
+    if (
+      value > canvas.height &&
+      Math.random() > 0.975
+    ) {
+      drops[index] = 0;
+    } else {
+      drops[index] += 20;
+    }
+
+  });
+
+}
+
+setInterval(drawMatrix, 50);
+
+
+/* =====================================================
+   COMMON HELPERS
+===================================================== */
+
+function result(id, text) {
+  document.getElementById(id).innerText = text;
+}
+
+function htmlResult(id, html) {
+  document.getElementById(id).innerHTML = html;
+}
+
+function openSafe(url) {
+  window.open(
+    url,
+    "_blank",
+    "noopener,noreferrer"
+  );
+}
+
+function escapeHTML(value) {
+
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+
+}
+
+
+/* =====================================================
+   1. EMAIL BREACH
+===================================================== */
+
+function breach() {
+
+  const email =
+    document.getElementById("e1").value.trim();
+
+  if (!email) {
+    result("r1", "Please enter an email address.");
+    return;
+  }
+
+  htmlResult(
+    "r1",
+    `
+      Email: ${escapeHTML(email)}
+
+      <br><br>
+
+      For an actual breach check, use:
+      <br>
+      <a
+        href="https://haveibeenpwned.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Have I Been Pwned
+      </a>
+
+      <br><br>
+      Never enter your password on a breach-checking website.
+    `
+  );
+
+}
+
+
+/* =====================================================
+   2. PHONE
+===================================================== */
+
+function phoneCheck() {
+
+  const number =
+    document.getElementById("e2").value.trim();
+
+  if (!number) {
+    result("r2", "Please enter a phone number.");
+    return;
+  }
+
+  htmlResult(
+    "r2",
+    `
+      Number entered: ${escapeHTML(number)}
+
+      <br><br>
+
+      You can manually verify unknown callers using:
+      <br>
+
+      <a
+        href="https://www.truecaller.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Truecaller
+      </a>
+
+      <br><br>
+      Never share OTP, UPI PIN or banking password.
+    `
+  );
+
+}
+
+
+/* =====================================================
+   3. PASSWORD STRENGTH
+===================================================== */
+
+function ps() {
+
+  const password =
+    document.getElementById("e3").value;
+
+  if (!password) {
+    result("r3", "Enter a password first.");
+    return;
+  }
+
+  let score = 0;
+
+  if (password.length >= 12) score++;
+  if (password.length >= 16) score++;
+  if (/[A-Z]/.test(password)) score++;
+  if (/[a-z]/.test(password)) score++;
+  if (/[0-9]/.test(password)) score++;
+  if (/[^A-Za-z0-9]/.test(password)) score++;
+
+  let strength;
+
+  if (score >= 5) {
+    strength = "STRONG";
+  } else if (score >= 3) {
+    strength = "MEDIUM";
+  } else {
+    strength = "WEAK";
+  }
+
+  result(
+    "r3",
+    `${strength} | Length: ${password.length} | Score: ${score}/6`
+  );
+
+}
+
+
+/* =====================================================
+   4. USERNAME
+===================================================== */
+
+function us() {
+
+  const username =
+    document.getElementById("e4").value.trim();
+
+  if (!username) {
+    result("r4", "Enter a username.");
+    return;
+  }
+
+  const safe =
+    encodeURIComponent(username);
+
+  htmlResult(
+    "r4",
+    `
+      Possible profile searches:
+
+      <br><br>
+
+      Instagram:
+      <a
+        href="https://www.instagram.com/${safe}/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open
+      </a>
+
+      <br>
+
+      Facebook:
+      <a
+        href="https://www.facebook.com/${safe}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open
+      </a>
+
+      <br>
+
+      X:
+      <a
+        href="https://x.com/${safe}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open
+      </a>
+
+      <br><br>
+
+      Note: A page opening does not guarantee that the username belongs
+      to the same person.
+    `
+  );
+
+}
+
+
+/* =====================================================
+   5. AADHAAR
+===================================================== */
+
+function aadhaarTips() {
+
+  result(
+    "r5",
+    "Aadhaar number publicly share na karein. OTP/PIN kisi ko na dein. UIDAI ki official services use karein."
+  );
+
+}
+
+
+/* =====================================================
+   6. DARK WEB
+===================================================== */
+
+function darkWeb() {
+
+  htmlResult(
+    "r6",
+    `
+      Dark-web safety ke liye personal information,
+      passwords aur OTP kabhi share na karein.
+
+      <br><br>
+
+      Breach awareness:
+      <a
+        href="https://haveibeenpwned.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Have I Been Pwned
+      </a>
+    `
+  );
+
+}
+
+
+/* =====================================================
+   7. LINK SCANNER
+===================================================== */
+
+function ls() {
+
+  const url =
+    document.getElementById("e7").value.trim();
+
+  if (!url) {
+    result("r7", "Enter a URL.");
+    return;
+  }
+
+  try {
+
+    const parsed =
+      new URL(
+        url.startsWith("http")
+          ? url
+          : "https://" + url
+      );
+
+    const suspicious =
+      /@|\.tk$|\.ml$|\.ga$|\.cf$|\.gq$/i.test(
+        parsed.hostname
+      );
+
+    result(
+      "r7",
+      suspicious
+        ? "⚠️ Suspicious domain pattern detected. Do not open it until verified."
+        : "Basic URL format looks normal. This does NOT prove the website is safe."
+    );
+
+  } catch {
+
+    result("r7", "Invalid URL.");
+
+  }
+
+}
+
+
+/* =====================================================
+   8. NUMBER SPAM
+===================================================== */
+
+function numberSpam() {
+
+  const number =
+    document.getElementById("e8").value.trim();
+
+  if (!number) {
+    result("r8", "Enter a number.");
+    return;
+  }
+
+  htmlResult(
+    "r8",
+    `
+      Number: ${escapeHTML(number)}
+
+      <br><br>
+
+      Verify unknown callers through a trusted caller-ID
+      service and never send money only because someone
+      claims to be from a bank/company.
+    `
+  );
+
+}
+
+
+/* =====================================================
+   9. UPI
+===================================================== */
+
+function upiCheck() {
+
+  const upi =
+    document.getElementById("e9").value.trim();
+
+  if (!upi) {
+    result("r9", "Enter a UPI ID.");
+    return;
+  }
+
+  result(
+    "r9",
+    `UPI ID entered: ${upi}\n\nVerify the recipient name inside your trusted UPI app before paying.`
+  );
+
+}
+
+
+/* =====================================================
+   10. QR
+===================================================== */
+
+function qr() {
+
+  const data =
+    document.getElementById("e10").value.trim();
+
+  if (!data) {
+    result("r10", "Enter text or URL.");
+    return;
+  }
+
+  const encoded =
+    encodeURIComponent(data);
+
+  htmlResult(
+    "r10",
+    `
+      <img
+        class="qr-image"
+        src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encoded}"
+        alt="Generated QR Code"
+      >
+
+      <br>
+
+      QR generated successfully.
+
+      <br><br>
+
+      <a
+        href="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encoded}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open HD QR
+      </a>
+    `
+  );
+
+}
+
+
+/* =====================================================
+   12. JOB FRAUD
+===================================================== */
+
+function jf() {
+
+  const message =
+    document.getElementById("e12")
+      .value
+      .toLowerCase();
+
+  if (!message) {
+    result("r12", "Paste the job message.");
+    return;
+  }
+
+  const redFlags = [
+    "registration fee",
+    "joining fee",
+    "security deposit",
+    "telegram",
+    "whatsapp only",
+    "pay first",
+    "processing fee",
+    "guaranteed job"
+  ];
+
+  const found =
+    redFlags.filter(word =>
+      message.includes(word)
+    );
+
+  if (found.length) {
+
+    result(
+      "r12",
+      `⚠️ Possible job-scam indicators:\n${found.join(", ")}`
+    );
+
+  } else {
+
+    result(
+      "r12",
+      "No common keywords detected. Still verify the company independently."
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   13. MESSAGE DETECTOR
+===================================================== */
+
+function hm() {
+
+  const message =
+    document.getElementById("e13")
+      .value
+      .toLowerCase();
+
+  if (!message) {
+    result("r13", "Paste the message.");
+    return;
+  }
+
+  const words = [
+    "lottery",
+    "kyc",
+    "blocked",
+    "otp",
+    "urgent",
+    "prize",
+    "click now",
+    "verify account",
+    "send money"
+  ];
+
+  const found =
+    words.filter(word =>
+      message.includes(word)
+    );
+
+  result(
+    "r13",
+    found.length
+      ? `⚠️ Possible scam indicators:\n${found.join(", ")}`
+      : "No common scam keywords detected. Always verify the sender."
+  );
+
+}
+
+
+/* =====================================================
+   14. FAKE PROFILE
+===================================================== */
+
+function fakeProfile() {
+
+  result(
+    "r14",
+    "Fake-profile warning signs:\n• Very new account\n• Stolen-looking photos\n• No genuine interactions\n• Asking for money/OTP\n• Pressure to move conversation elsewhere"
+  );
+
+}
+
+
+/* =====================================================
+   15. PRIVACY SCORE
+===================================================== */
+
+function privacyScore() {
+
+  const score =
+    55 + Math.floor(Math.random() * 31);
+
+  result(
+    "r15",
+    `Awareness Score: ${score}/100\n\nImprove it with 2FA, private profiles, unique passwords and limited public information.`
+  );
+
+}
+
+
+/* =====================================================
+   16. EXIF CLEANER
+===================================================== */
+
+function exif() {
+
+  const file =
+    document.getElementById("f16").files[0];
+
+  if (!file) {
+    result("r16", "Select an image first.");
+    return;
+  }
+
+  if (!file.type.startsWith("image/")) {
+    result("r16", "Please select an image.");
+    return;
+  }
+
+  const reader =
+    new FileReader();
+
+  reader.onload = function(event) {
+
+    const img =
+      new Image();
+
+    img.onload = function() {
+
+      const canvas =
+        document.createElement("canvas");
+
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+
+      const context =
+        canvas.getContext("2d");
+
+      context.drawImage(img, 0, 0);
+
+      canvas.toBlob(
+        function(blob) {
+
+          if (!blob) {
+            result("r16", "Could not create clean image.");
+            return;
+          }
+
+          const url =
+            URL.createObjectURL(blob);
+
+          const link =
+            document.createElement("a");
+
+          link.href = url;
+          link.download =
+            "theredeye-clean-image.jpg";
+
+          link.click();
+
+          setTimeout(
+            () => URL.revokeObjectURL(url),
+            1000
+          );
+
+          result(
+            "r16",
+            "✅ Clean image created and download started. Re-encoding through canvas removes common embedded metadata."
+          );
+
+        },
+        "image/jpeg",
+        0.92
+      );
+
+    };
+
+    img.onerror = function() {
+      result("r16", "Image could not be processed.");
+    };
+
+    img.src = event.target.result;
+
+  };
+
+  reader.readAsDataURL(file);
+
+}
+
+
+/* =====================================================
+   17. STALKER SAFETY
+===================================================== */
+
+function stalkerTips() {
+
+  result(
+    "r17",
+    "Private account rakhein, unknown followers remove karein, 2FA enable karein, location sharing check karein aur suspicious messages/screenshots preserve karein."
+  );
+
+}
+
+
+/* =====================================================
+   18. RECOVERY
+===================================================== */
+
+function rec() {
+
+  const platform =
+    document.getElementById("e18").value;
+
+  result(
+    "r18",
+    `${platform} Recovery:\n\n1. Official login/recovery page open karein.\n2. Forgot password/recovery option use karein.\n3. Account email/phone verify karein.\n4. Password change karein.\n5. 2FA enable karein.\n6. Unknown sessions logout karein.`
+  );
+
+}
+
+
+/* =====================================================
+   19. 2FA
+===================================================== */
+
+function twoFA() {
+
+  result(
+    "r19",
+    "2FA enable karein: Account Settings → Security → Two-Factor Authentication → Authenticator App/Security Key. Recovery codes securely store karein."
+  );
+
+}
+
+
+/* =====================================================
+   20. LOCATION
+===================================================== */
+
+function gl() {
+
+  if (!navigator.geolocation) {
+
+    result(
+      "r20",
+      "This browser does not support location services."
+    );
+
+    return;
+  }
+
+  result(
+    "r20",
+    "Location permission request ki ja rahi hai..."
+  );
+
+  navigator.geolocation.getCurrentPosition(
+
+    function(position) {
+
+      const lat =
+        position.coords.latitude;
+
+      const lon =
+        position.coords.longitude;
+
+      const mapURL =
+        `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
+
+      htmlResult(
+        "r20",
+        `
+          Location obtained on this device.
+
+          <br><br>
+
+          <a
+            href="${mapURL}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open My Location in Google Maps
+          </a>
+
+          <br><br>
+
+          <button onclick="copyText('${mapURL}')">
+            Copy Location Link
+          </button>
+
+          <br><br>
+
+          <small>
+            Location is accessed only after browser permission.
+          </small>
+        `
+      );
+
+    },
+
+    function(error) {
+
+      let message =
+        "Location unavailable.";
+
+      if (error.code === 1) {
+        message =
+          "Location permission denied.";
+      } else if (error.code === 2) {
+        message =
+          "Location unavailable.";
+      } else if (error.code === 3) {
+        message =
+          "Location request timed out.";
+      }
+
+      result("r20", message);
+
+    },
+
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    }
+
+  );
+
+}
+
+
+/* =====================================================
+   21. COMPLAINT DRAFT
+===================================================== */
+
+function cd() {
+
+  const incident =
+    document.getElementById("e21").value.trim();
+
+  if (!incident) {
+    result("r21", "Please describe what happened.");
+    return;
+  }
+
+  const today =
+    new Date().toLocaleDateString("en-IN");
+
+  result(
+    "r21",
+`CYBER CRIME COMPLAINT DRAFT
+
+Date: ${today}
+
+Subject: Cyber Crime / Fraud Complaint
+
+Incident:
+${incident}
+
+I request the concerned authority to examine the matter and take appropriate action.
+
+I can provide relevant screenshots, transaction details and other evidence if required.`
+  );
+
+}
+
+
+/* =====================================================
+   23. WOMEN SAFETY
+===================================================== */
+
+function womenSOS() {
+
+  result(
+    "r23",
+    "Emergency mein local emergency service ko contact karein. Trusted contacts ko live location share karein. Phone ka emergency/SOS feature pehle se configure karke rakhein."
+  );
+
+}
+
+
+/* =====================================================
+   24. CHILD SAFETY
+===================================================== */
+
+function childSafety() {
+
+  result(
+    "r24",
+    "Child safety: parental controls enable karein, age-appropriate apps use karein, SafeSearch enable karein, unknown contacts se interaction monitor karein aur child ko OTP/password share na karne ki training dein."
+  );
+
+}
+
+
+/* =====================================================
+   25. IP INFORMATION
+===================================================== */
+
+async function ip() {
+
+  result(
+    "r25",
+    "Fetching public IP information..."
+  );
+
+  try {
+
+    const response =
+      await fetch(
+        "https://ipapi.co/json/",
+        {
+          method: "GET",
+          cache: "no-store"
+        }
+      );
+
+    if (!response.ok) {
+      throw new Error("Request failed");
+    }
+
+    const data =
+      await response.json();
+
+    result(
+      "r25",
+      `Public IP: ${data.ip || "Unavailable"}\nCity: ${data.city || "Unavailable"}\nCountry: ${data.country_name || "Unavailable"}\n\nNote: IP-based location is approximate.`
+    );
+
+  } catch {
+
+    result(
+      "r25",
+      "Could not fetch IP information. Network/API request may be blocked."
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   26. WHOIS
+===================================================== */
+
+function wh() {
+
+  const domain =
+    document.getElementById("e26")
+      .value
+      .trim()
+      .replace(/^https?:\/\//i, "")
+      .split("/")[0];
+
+  if (!domain) {
+    result("r26", "Enter a domain.");
+    return;
+  }
+
+  const url =
+    `https://who.is/whois/${encodeURIComponent(domain)}`;
+
+  htmlResult(
+    "r26",
+    `
+      <a
+        href="${url}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open WHOIS for ${escapeHTML(domain)}
+      </a>
+    `
+  );
+
+}
+
+
+/* =====================================================
+   27. WEBSITE SAFETY
+===================================================== */
+
+function ss() {
+
+  const value =
+    document.getElementById("e27")
+      .value
+      .trim();
+
+  if (!value) {
+    result("r27", "Enter a URL.");
+    return;
+  }
+
+  const url =
+    `https://www.virustotal.com/gui/search/${encodeURIComponent(value)}`;
+
+  htmlResult(
+    "r27",
+    `
+      <a
+        href="${url}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Check this URL on VirusTotal
+      </a>
+
+      <br><br>
+
+      VirusTotal result ko carefully review karein.
+    `
+  );
+
+}
+
+
+/* =====================================================
+   28. EMAIL HEADER
+===================================================== */
+
+function headerGuide() {
+
+  result(
+    "r28",
+    "Gmail → Email open karein → 3 dots → Show Original.\n\nSPF/DKIM/DMARC results check karein. FAIL result suspicious ho sakta hai, lekin ek single result se final conclusion na nikalein."
+  );
+
+}
+
+
+/* =====================================================
+   29. REVERSE IMAGE
+===================================================== */
+
+function ri() {
+
+  const imageURL =
+    document.getElementById("e29")
+      .value
+      .trim();
+
+  if (!imageURL) {
+    result("r29", "Paste an image URL.");
+    return;
+  }
+
+  const google =
+    `https://www.google.com/searchbyimage?image_url=${encodeURIComponent(imageURL)}`;
+
+  const yandex =
+    `https://yandex.com/images/search?rpt=imageview&url=${encodeURIComponent(imageURL)}`;
+
+  htmlResult(
+    "r29",
+    `
+      <a
+        href="${google}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Google Reverse Image Search
+      </a>
+
+      <br><br>
+
+      <a
+        href="${yandex}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Yandex Image Search
+      </a>
+    `
+  );
+
+}
+
+
+/* =====================================================
+   31. YOUTUBE THUMBNAIL
+===================================================== */
+
+function getYouTubeID(url) {
+
+  const patterns = [
+
+    /(?:youtube\.com\/watch\?v=)([^&]+)/i,
+
+    /(?:youtu\.be\/)([^?&]+)/i,
+
+    /(?:youtube\.com\/embed\/)([^?&]+)/i,
+
+    /(?:youtube\.com\/shorts\/)([^?&]+)/i
+
+  ];
+
+  for (const pattern of patterns) {
+
+    const match =
+      url.match(pattern);
+
+    if (match) {
+      return match[1];
+    }
+
+  }
+
+  return null;
+
+}
+
+function yt() {
+
+  const url =
+    document.getElementById("e31")
+      .value
+      .trim();
+
+  if (!url) {
+    result("r31", "Paste a YouTube URL.");
+    return;
+  }
+
+  const videoID =
+    getYouTubeID(url);
+
+  if (!videoID) {
+
+    result(
+      "r31",
+      "Could not detect a valid YouTube video ID."
+    );
+
+    return;
+  }
+
+  const thumbnail =
+    `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`;
+
+  htmlResult(
+    "r31",
+    `
+      <img
+        class="qr-image"
+        src="${thumbnail}"
+        alt="YouTube Thumbnail"
+        onerror="this.src='https://img.youtube.com/vi/${videoID}/hqdefault.jpg'"
+      >
+
+      <br>
+
+      <a
+        href="${thumbnail}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open Thumbnail
+      </a>
+    `
+  );
+
+}
+
+
+/* =====================================================
+   32. SAFETY CHATBOT
+===================================================== */
+
+function cb() {
+
+  const query =
+    document.getElementById("e32")
+      .value
+      .toLowerCase()
+      .trim();
+
+  if (!query) {
+    result("r32", "Ask a cyber-safety question.");
+    return;
+  }
+
+  let answer =
+    "Safety tip: unique password + 2FA + suspicious links avoid karein.";
+
+  if (
+    query.includes("hack") ||
+    query.includes("instagram")
+  ) {
+
+    answer =
+      "Account hacked ho to official account recovery use karein, password change karein, unknown sessions logout karein aur 2FA enable karein.";
+
+  } else if (
+    query.includes("upi") ||
+    query.includes("payment")
+  ) {
+
+    answer =
+      "UPI fraud mein immediately bank/UPI provider ko inform karein aur India mein cyber-fraud reporting ke liye 1930 / cybercrime.gov.in use karein.";
+
+  } else if (
+    query.includes("otp")
+  ) {
+
+    answer =
+      "OTP kisi person ke saath share na karein. Bank/support staff bhi normally aapse OTP/PIN maangkar payment authorize nahi karte.";
+
+  } else if (
+    query.includes("job")
+  ) {
+
+    answer =
+      "Job ke liye registration/security/joining fee maangna red flag ho sakta hai. Company ko independently verify karein.";
+
+  }
+
+  result("r32", answer);
+
+}
+
+
+/* =====================================================
+   33. SECURITY SCORE
+===================================================== */
+
+function securityScore() {
+
+  const score =
+    60 + Math.floor(Math.random() * 31);
+
+  result(
+    "r33",
+    `Security Awareness Score: ${score}/100\n\nImprove: unique passwords, 2FA, software updates, backup and phishing awareness.`
+  );
+
+}
+
+
+/* =====================================================
+   34. CYBER LAW GUIDE
+===================================================== */
+
+function lawGuide() {
+
+  result(
+    "r34",
+    "Cyber-law information can change and depends on the exact facts of a case. For a real incident, use the official cybercrime reporting portal or consult a qualified legal professional."
+  );
+
+}
+
+
+/* =====================================================
+   35. DAILY TIP
+===================================================== */
+
+function dailyTip() {
+
+  const tips = [
+
+    "Har account ke liye unique password use karein.",
+
+    "2FA enable karein.",
+
+    "Unknown links par click karne se pehle verify karein.",
+
+    "Public Wi-Fi par sensitive banking activity avoid karein.",
+
+    "OTP, UPI PIN aur passwords kabhi share na karein.",
+
+    "Phone aur apps ko regularly update karein.",
+
+    "Important files ka backup rakhein."
+
+  ];
+
+  const random =
+    tips[Math.floor(Math.random() * tips.length)];
+
+  result("r35", "💡 " + random);
+
+}
+
+
+/* =====================================================
+   36. PASSWORD GENERATOR
+===================================================== */
+
+function pg() {
+
+  const characters =
+    "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*";
+
+  const length = 16;
+
+  let password = "";
+
+  const randomValues =
+    new Uint32Array(length);
+
+  crypto.getRandomValues(randomValues);
+
+  for (let i = 0; i < length; i++) {
+
+    password +=
+      characters[
+        randomValues[i] %
+        characters.length
+      ];
+
+  }
+
+  htmlResult(
+    "r36",
+    `
+      <strong>${escapeHTML(password)}</strong>
+
+      <br><br>
+
+      <button onclick="copyText('${password}')">
+        Copy Password
+      </button>
+    `
+  );
+
+}
+
+
+/* =====================================================
+   37. PORT INFO
+===================================================== */
+
+function portInfo() {
+
+  const port =
+    document.getElementById("e37")
+      .value
+      .trim();
+
+  const known = {
+
+    "20": "FTP Data",
+    "21": "FTP",
+    "22": "SSH",
+    "23": "Telnet",
+    "25": "SMTP",
+    "53": "DNS",
+    "80": "HTTP",
+    "110": "POP3",
+    "143": "IMAP",
+    "443": "HTTPS",
+    "465": "SMTPS",
+    "587": "SMTP Submission",
+    "993": "IMAPS",
+    "995": "POP3S"
+
+  };
+
+  result(
+    "r37",
+    known[port]
+      ? `Port ${port} = ${known[port]}`
+      : `Port ${port} = No basic entry in this tool.`
+  );
+
+}
+
+
+/* =====================================================
+   38. WIFI
+===================================================== */
+
+function wifiTips() {
+
+  result(
+    "r38",
+    "Wi-Fi security:\n• WPA2/WPA3 use karein\n• Router admin password change karein\n• WPS disable karna consider karein\n• Firmware update rakhein\n• Guest network use karein\n• Default credentials change karein"
+  );
+
+}
+
+
+/* =====================================================
+   39. DEVICE INFO
+===================================================== */
+
+function di() {
+
+  result(
+    "r39",
+    `Browser: ${navigator.userAgent}
+
+Platform: ${navigator.platform || "Unavailable"}
+
+Language: ${navigator.language}
+
+Screen: ${screen.width} × ${screen.height}
+
+Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}
+
+Online: ${navigator.onLine ? "Yes" : "No"}`
+  );
+
+}
+
+
+/* =====================================================
+   40. URL EXPANDER
+===================================================== */
+
+function ue() {
+
+  const value =
+    document.getElementById("e40")
+      .value
+      .trim();
+
+  if (!value) {
+    result("r40", "Enter a shortened URL.");
+    return;
+  }
+
+  const encoded =
+    encodeURIComponent(
+      value.startsWith("http")
+        ? value
+        : "https://" + value
+    );
+
+  htmlResult(
+    "r40",
+    `
+      <a
+        href="https://unshorten.me/s/${encoded}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open URL Expander
+      </a>
+
+      <br><br>
+
+      Never open an unknown destination directly.
+    `
+  );
+
+}
+
+
+/* =====================================================
+   41. IP LOGGER SAFETY
+===================================================== */
+
+function ipLoggerSafety() {
+
+  result(
+    "r41",
+    "⚠️ IP tracking awareness:\n\n• Unknown links par click na karein.\n• Short URLs ko verify karein.\n• Browser/location permissions carefully manage karein.\n• Publicly sensitive information share na karein.\n• Suspicious link ko VirusTotal jaise trusted scanning service par check karein.\n\nIP address se usually exact home address automatically reveal nahi hota; IP-based location approximate ho sakti hai."
+  );
+
+}
+
+
+/* =====================================================
+   COPY FUNCTION
+===================================================== */
+
+async function copyText(text) {
+
+  try {
+
+    await navigator.clipboard.writeText(text);
+
+    alert("Copied!");
+
+  } catch {
+
+    alert("Copy failed. Please copy manually.");
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
