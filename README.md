@@ -1,11 +1,14 @@
 # 👁️ TheRedEye - See The Unseen. Hack The System.
 
-**TheRedEye** is an advanced educational platform for Cyber Security, Ethical Hacking & Bug Bounty - built for the next generation of Indian hackers. We teach in simple **Hindi + English**.
+![TheRedEye Banner](./favicon.png)
+
+**TheRedEye** is an advanced educational platform for **Cyber Security, Ethical Hacking & Bug Bounty** - built for the next generation of Indian hackers. We teach in simple **Hindi + English**.
 
 🔗 **Live Website:** https://devilking5447.github.io/theredeye/
+
 > Old link redirecting soon.
 
-![TheRedEye Banner](cyberpunk_red_eye.webp)
+---
 
 ### 📚 What You'll Learn Here?
 
@@ -20,22 +23,22 @@
 
 To make India cyber-safe by providing 100% free, legal, and powerful cyber security education. We don't just teach hacking, we teach you how to protect.
 
-> All content is for **educational purpose only**.
+> All content is for educational purpose only.
 
 ### 🛡️ Legal Pages
 
-*   [About Us](about.html)
-*   [Contact Us](contact.html)
-*   [Privacy Policy](privacy.html)
-*   [Disclaimer](disclaimer.html)
+*   [About Us](https://devilking5447.github.io/theredeye/about.html)
+*   [Contact Us](https://devilking5447.github.io/theredeye/contact.html)
+*   [Privacy Policy](https://devilking5447.github.io/theredeye/privacy.html)
+*   [Disclaimer](https://devilking5447.github.io/theredeye/disclaimer.html)
 
 ### ⚠️ Disclaimer
 
-All tutorials and tools mentioned on this site should only be used on your own systems or with explicit permission. We do not promote illegal hacking. **Stay ethical, stay in the RedEye.**
+All tutorials and tools mentioned on this site should only be used on your own systems or with explicit permission. We do not promote illegal hacking. Stay ethical, stay in the RedEye.
 
 ### 🤝 Contact
 
-Have a doubt? Found a bug? Reach us via [Contact Page](contact.html)
+Have a doubt? Found a bug? Reach us via [Contact Page](https://devilking5447.github.io/theredeye/contact.html)
 
 ---
 **Made with ❤️ and 👁️ in India | TheRedEye Team**
