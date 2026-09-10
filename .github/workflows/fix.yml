@@ -1,0 +1,15 @@
+name: fix
+on: workflow_dispatch
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          find . -type f -not -path "./.git/*" -not -path "./.github/*" -exec sed -i 's/blackcathacks.in/theredeye/g; s/blackcathacks/theredeye/g' {} +
+      - run: |
+          git config user.name "bot"
+          git config user.email "bot@bot.com"
+          git add .
+          git commit -m "replace name" || echo "no changes"
+          git push
