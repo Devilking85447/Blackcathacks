@@ -1,4 +1,4 @@
-// BLACKCATHACKS - REAL RANKER v1.0
+// theredeye - REAL RANKER v1.0
 // Job: Find 5 profitable keywords that will rank and earn
 // No API key needed - uses real researched data + smart logic
 

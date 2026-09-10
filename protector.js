@@ -1,4 +1,4 @@
-// BLACKCATHACKS - REAL PROTECTOR v1.0
+// theredeye - REAL PROTECTOR v1.0
 // Job: Scan all 41 tools and tell which one is broken
 
 const fs = require('fs');

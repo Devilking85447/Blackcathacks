@@ -35,9 +35,9 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${nextBlog.title} - BlackCatHacks</title>
-<meta name="description" content="${nextBlog.title} - Full guide by BlackCatHacks. Learn how to stay safe from ${nextBlog.kw} fraud.">
-<meta name="keywords" content="${nextBlog.kw}, cyber security, fraud check, BlackCatHacks">
+<title>${nextBlog.title} - theredeye</title>
+<meta name="description" content="${nextBlog.title} - Full guide by theredeye. Learn how to stay safe from ${nextBlog.kw} fraud.">
+<meta name="keywords" content="${nextBlog.kw}, cyber security, fraud check, theredeye">
 <style>
 body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0a;color:#e0e0e0;padding:12px;margin:0;line-height:1.7}
 .container{max-width:720px;margin:auto;background:#111;padding:22px;border-radius:14px;border:1px solid #2a2a2a}
@@ -49,7 +49,7 @@ ul{padding-left:20px} li{margin-bottom:8px}
 </head>
 <body>
 <div class="container">
-<p class="meta">BlackCatHacks | Security Guide | Updated: ${new Date().toLocaleDateString('en-IN')}</p>
+<p class="meta">theredeye | Security Guide | Updated: ${new Date().toLocaleDateString('en-IN')}</p>
 <h1>${nextBlog.title}</h1>
 
 <p>India me roz 2000+ log <b>${nextBlog.kw}</b> fraud ka shikar bante hain. Scammers naye-naye tarike se logon ko loot rahe hain. Is guide me hum aapko step-by-step batayenge kaise aap 100% safe reh sakte hain.</p>
